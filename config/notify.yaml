@@ -1,0 +1,15 @@
+- name:  AireCarlet
+  platform: telegram
+  api_key: !secret telegram_apikeyU
+  chat_id: !secret telegram_chat_id
+
+- name: Josep
+  platform: telegram
+  api_key: !secret telegram_apikey
+  chat_id: !secret telegram_josep_id
+
+- name:  AireCarlet_A
+  platform: telegram
+  api_key: !secret telegram_apikeyU
+  chat_id: !secret telegram_ana_id
+

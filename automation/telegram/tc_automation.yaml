@@ -1,0 +1,48 @@
+##########################################
+## Enviar foto telegram
+##
+- id: enviar_foto_telegram
+  alias: 'Enviar foto telegram'
+  hide_entity: false
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/capturafoto'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.enviar_foto_telegram      
+      
+#    - service: shell_command.take_snapshot
+#    - delay:
+#        seconds: 1
+#    - service: notify.AireCarlet
+#      data:
+#        title: ""
+#        message: ""
+#        data:
+#          photo:
+#            - file: /home/homeassistant/capturas/captura1.jpg
+#              caption: 'Captura entrada'
+
+- id: enviar_video_telegram
+  alias: 'Enviar video telegram'
+  hide_entity: false
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/capturavideo'
+  action:
+    - service: shell_command.take_video
+    - delay:
+        seconds: 20
+    - service: notify.AireCarlet
+      data:
+        title: ""
+        message: ""
+        data:
+          document:
+            file: /home/homeassistant/capturas/video.avi
+            caption: 'Captura entrada'              

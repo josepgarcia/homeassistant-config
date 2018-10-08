@@ -1,0 +1,33 @@
+##########################################
+## status JOSEP
+##
+- alias: 'TC status'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/status'
+    - platform: time
+      at: '7:10'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.info_estado_tot
+
+##########################################
+## estat ANA
+##
+- alias: 'TC status ANA'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/estat'
+    - platform: time
+      at: '8:10'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.info_estado_tot_ana

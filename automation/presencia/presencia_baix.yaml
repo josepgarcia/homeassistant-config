@@ -1,0 +1,37 @@
+- id: presencia_baix_llum
+  alias: 'Presencia baix llum'
+  hide_entity: true
+  trigger:
+    entity_id: binary_sensor.motion_sensor_158d000222e398
+    platform: state
+    #from: 'off'
+    to: 'on'
+  condition:
+    - condition: time
+      after: '21:00:00'
+      before: '08:00:00'   
+  action:  
+    - service: script.turn_on
+      data:
+        entity_id: script.bombilla1_on
+    - delay: 0:02
+    - service: script.turn_on
+      data:
+        entity_id: script.bombilla1_off
+
+- id: presencia_baix_play
+  alias: 'Presencia baix Play'
+  hide_entity: true
+  trigger:
+    entity_id: binary_sensor.motion_sensor_158d000222e398
+    platform: state
+    #from: 'off'
+    to: 'on'
+  condition:
+    - condition: time
+      after: '09:00:00'
+      before: '22:00:00'   
+  action:  
+    service: script.turn_on
+    data:
+        entity_id: script.sonar_gw_baixet        

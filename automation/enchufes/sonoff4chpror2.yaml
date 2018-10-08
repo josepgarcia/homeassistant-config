@@ -1,0 +1,44 @@
+##########################################
+## Sonoff 4ch pro r2
+## Apagar el switch desde HA
+## Cuando se configura Sonoff para que se encienda
+## y apague por HW, en HA el topic se queda como ON
+## al reiniciar mosquitto lo tenia guardado como ON
+## y enciende el switch
+##
+## * Solo los relés 1 y 2 que son los que se apagan automaticamente
+##
+##
+## ***** CAMBIAR, cuando se detecte que el sonoff hace OFF
+## por HARDWARE (homeassistant lo detecta xq cambia el botón)
+## mandar el topic a switch.turn_off
+## 
+- id: sonoffbasic
+  alias: 'Apagar 4chPro1'
+  hide_entity: true
+  trigger:
+     platform: state
+     entity_id: switch.4chPro1
+     to: 'on'
+  action:
+     - delay:
+         milliseconds: 20
+     - service: switch.turn_off
+       data:
+         entity_id: 
+           - switch.4chPro1
+
+- id: sonoffbasic
+  alias: 'Apagar 4chPro2'
+  hide_entity: true
+  trigger:
+     platform: state
+     entity_id: switch.4chPro2
+     to: 'on'
+  action:
+     - delay:
+         milliseconds: 20
+     - service: switch.turn_off
+       data:
+         entity_id: 
+           - switch.4chPro2

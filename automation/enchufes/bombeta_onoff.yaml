@@ -1,0 +1,35 @@
+- id: bombeta_aigua_on
+  alias: 'Bombeta aigua ON'
+  hide_entity: true
+  trigger:
+     - platform: time
+       hours: '8'
+       minutes: '10'
+       seconds: '00'
+  condition:
+    condition: state
+    entity_id: input_boolean.en_vacaciones
+    state: 'off'       
+  action:
+     - service: switch.turn_on
+       data:
+         entity_id: 
+           - switch.sonoffs20
+
+- id: bombeta_aigua_off
+  alias: 'Bombeta aigua OFF'
+  hide_entity: true
+  trigger:
+     - platform: time
+       hours: '23'
+       minutes: '10'
+       seconds: '00'
+  condition:
+    condition: state
+    entity_id: input_boolean.en_vacaciones
+    state: 'off'       
+  action:
+     - service: switch.turn_off
+       data:
+         entity_id: 
+           - switch.sonoffs20     

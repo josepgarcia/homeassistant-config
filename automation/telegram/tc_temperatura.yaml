@@ -1,0 +1,11 @@
+- alias: 'TC temperatura ANA'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/temperatura'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.info_temperatura_telegram_ana

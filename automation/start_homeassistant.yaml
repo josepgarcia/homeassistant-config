@@ -1,0 +1,38 @@
+- alias: "Power state on HA start-up"
+  hide_entity: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "HA Reiniciado: Revisar *ALARMA* @josepgarcia "
+    ### Apagar sonoffbasic (NEUTRO)    
+    #- service: mqtt.publish
+    #  data:
+    #    topic: "cmnd/sonoffbasic/POWER"
+    #    payload: "OFF"
+    ### Check estado sonoff s20 calentador
+#    - service: mqtt.publish
+#      data:
+#        topic: "cmnd/sonoffs202/state"
+#        payload: "" 
+    ####
+    #### Sonoff 4ch pro r2 APAGADOS al iniciar
+    ####
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.4chPro1        
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.4chPro2
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.4chPro3        
+    - service: switch.turn_on
+      data:
+        entity_id: 
+          - switch.4chPro4        

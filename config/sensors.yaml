@@ -1,0 +1,91 @@
+- platform: systemmonitor 
+  name: Domopi
+  # en segundos (1 hora)
+  scan_interval: 3600
+  resources: 
+      - type: disk_use_percent 
+        arg: /home 
+      - type: memory_free 
+      - type: processor_use 
+      - type: last_boot 
+      - type: since_last_boot
+#      - type: disk_free 
+#        arg: /
+
+- platform: systemmonitor
+  resources:
+    - type: process
+      arg: mosquitto
+
+- platform: pi_hole
+  
+- platform: template
+  sensors:
+    bateria_porta_garatge:
+      friendly_name: 'Porta garatge'
+      value_template: >
+        {%- if states.binary_sensor.door_window_sensor_158d0001a7eafb.attributes.battery_level %}
+            {{ states.binary_sensor.door_window_sensor_158d0001a7eafb.attributes.battery_level|round }}
+        {% else %}
+          {{ states.binary_sensor.door_window_sensor_158d0001a7eafb.state }}
+        {%- endif %}
+      icon_template: '{%- if  states.binary_sensor.door_window_sensor_158d0001a7eafb.attributes.battery_level <= 5 %}mdi:battery-outline{%- elif states.binary_sensor.door_window_sensor_158d0001a7eafb.attributes.battery_level >= 95 %}mdi:battery{% else %}mdi:battery-{{(states.binary_sensor.door_window_sensor_158d0001a7eafb.attributes.battery_level|float / 10)|round*10}}{%- endif %}'
+      unit_of_measurement: "%"
+    bateria_porta_entrada:
+      friendly_name: 'Porta entrada'
+      value_template: >
+        {%- if states.binary_sensor.door_window_sensor_158d0001b7bd84.attributes.battery_level %}
+            {{ states.binary_sensor.door_window_sensor_158d0001b7bd84.attributes.battery_level|round }}
+        {% else %}
+          {{ states.binary_sensor.door_window_sensor_158d0001b7bd84.state }}
+        {%- endif %}
+      icon_template: '{%- if  states.binary_sensor.door_window_sensor_158d0001b7bd84.attributes.battery_level <= 5 %}mdi:battery-outline{%- elif states.binary_sensor.door_window_sensor_158d0001b7bd84.attributes.battery_level >= 95 %}mdi:battery{% else %}mdi:battery-{{(states.binary_sensor.door_window_sensor_158d0001b7bd84.attributes.battery_level|float / 10)|round*10}}{%- endif %}'
+      unit_of_measurement: "%"  
+    bateria_presencia1:
+      friendly_name: 'Presencia 1'
+      value_template: >
+        {%- if states.binary_sensor.motion_sensor_158d000222e398.attributes.battery_level %}
+            {{ states.binary_sensor.motion_sensor_158d000222e398.attributes.battery_level|round }}
+        {% else %}
+          {{ states.binary_sensor.motion_sensor_158d000222e398.state }}
+        {%- endif %}
+      icon_template: '{%- if  states.binary_sensor.motion_sensor_158d000222e398.attributes.battery_level <= 5 %}
+                        mdi:battery-outline
+                      {%- elif states.binary_sensor.motion_sensor_158d000222e398.attributes.battery_level >= 95 %}
+                        mdi:battery
+                      {% else %}
+                        mdi:battery-{{(states.binary_sensor.motion_sensor_158d000222e398.attributes.battery_level|float / 10)|round*10}}
+                      {%- endif %}'
+      unit_of_measurement: "%" 
+    bateria_presencia2:
+      friendly_name: 'Presencia 2'
+      value_template: >
+        {%- if states.binary_sensor.motion_sensor_158d0001f9d516.attributes.battery_level %}
+            {{ states.binary_sensor.motion_sensor_158d0001f9d516.attributes.battery_level|round }}
+        {% else %}
+          {{ states.binary_sensor.motion_sensor_158d0001f9d516.state }}
+        {%- endif %}
+      icon_template: '{%- if  states.binary_sensor.motion_sensor_158d0001f9d516.attributes.battery_level <= 5 %}
+                        mdi:battery-outline
+                      {%- elif states.binary_sensor.motion_sensor_158d0001f9d516.attributes.battery_level >= 95 %}
+                        mdi:battery
+                      {% else %}
+                        mdi:battery-{{(states.binary_sensor.motion_sensor_158d0001f9d516.attributes.battery_level|float / 10)|round*10}}
+                      {%- endif %}'
+      unit_of_measurement: "%"  
+    bateria_presencia3:
+      friendly_name: 'Presencia 3'
+      value_template: >
+        {%- if states.binary_sensor.motion_sensor_158d000236b6a6.attributes.battery_level %}
+            {{ states.binary_sensor.motion_sensor_158d000236b6a6.attributes.battery_level|round }}
+        {% else %}
+          {{ states.binary_sensor.motion_sensor_158d000236b6a6.state }}
+        {%- endif %}
+      icon_template: '{%- if  states.binary_sensor.motion_sensor_158d000236b6a6.attributes.battery_level <= 5 %}
+                        mdi:battery-outline
+                      {%- elif states.binary_sensor.motion_sensor_158d000236b6a6.attributes.battery_level >= 95 %}
+                        mdi:battery
+                      {% else %}
+                        mdi:battery-{{(states.binary_sensor.motion_sensor_158d000236b6a6.attributes.battery_level|float / 10)|round*10}}
+                      {%- endif %}'
+      unit_of_measurement: "%"  

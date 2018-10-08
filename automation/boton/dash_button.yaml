@@ -1,0 +1,14 @@
+#- alias: dash button.....
+#  trigger:
+#    - platform: state
+#      entity_id: input_boolean.dash_button_1
+#      from: 'off'
+#      to: 'on'
+#  action:
+#    - service: notify.AireCarlet
+#      data:
+#        message: "Click dash button"
+#    - delay:
+#        seconds: 10
+#    - service: homeassistant.turn_off
+#      entity_id: input_boolean.dash_button_1

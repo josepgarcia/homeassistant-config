@@ -1,0 +1,68 @@
+##########################################
+## Luz entrada
+##
+- alias: 'TC luz entrada ON'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/luzentradaON'
+  action:
+    service: script.bombilla1_on
+
+- alias: 'TC luz entrada OFF'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/luzentradaOFF'
+  action:
+    service: script.bombilla1_off
+
+##########################################
+## Luz salón
+##
+- alias: 'TC luz salon ON'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/luzsalonON'
+  action:
+    service: script.bombilla2_on
+
+- alias: 'TC luz salon OFF'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/luzsalonOFF'
+  action:
+    service: script.bombilla2_off
+
+##########################################
+## Calentador
+##
+- alias: 'TC calentador ON'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/calentadorON'
+  action:
+    service: script.calentador_on
+
+- alias: 'TC calentador OFF'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/calentadorOFF'
+  action:
+    service: script.calentador_off

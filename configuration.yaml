@@ -1,0 +1,85 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation 
+  unit_system: metric
+  time_zone: Europe/Madrid
+  customize: !include config/customize.yaml
+  whitelist_external_dirs:
+    - /home/homeassistant/capturas
+    
+# Enables the frontend
+frontend:
+  javascript_version: latest
+  
+# Enables configuration UI
+config:
+
+http:
+  api_password: !secret http_password
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.3.0/24
+    
+mqtt:
+  broker: 192.168.3.12
+  port: 1883
+  discovery: True
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+# Discover some devices automatically
+discovery:
+  ignore:
+   - samsung_tv
+   
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+# sun:
+  
+#https://home-assistant.io/components/recorder/
+#The recorder component is storing details in a database which then are handled by the history component.
+recorder:
+  purge_interval: 7
+  purge_keep_days: 7
+  
+##########################
+######## INCLUDES ########
+##########################
+
+#### CONFIG
+switch: !include config/switches.yaml
+light: !include config/lights.yaml
+notify: !include config/notify.yaml
+#remote: !include config/remotes.yaml     - XIAOMI IR REMOTE
+automation: !include_dir_merge_list automation
+
+script: !include_dir_merge_named scripts
+group: !include_dir_merge_named groups
+panel_iframe: !include panels/panels.yaml
+device_tracker: !include config/devices_tracker.yaml
+input_select: !include config/input_select.yaml
+input_boolean: !include config/input_bool.yaml
+telegram_bot: !include config/telegram_bots.yaml
+camera:  !include config/cameras.yaml
+sensor: !include config/sensors.yaml
+shell_command: !include config/shell_command.yaml
+
+binary_sensor: !include config/binary_sensors.yaml
+
+#### ALARM
+alarm_control_panel: !include panels/alarm.yaml
+panel_custom: !include panels/panel_custom.yaml
+
+xiaomi_aqara:
+  gateways:
+    - mac: !secret gw_mac 
+      key: !secret gw_key 

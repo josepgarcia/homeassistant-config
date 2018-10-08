@@ -1,0 +1,3 @@
+- platform: ffmpeg
+  input: !secret rtsp1
+  name: CAM Estudi

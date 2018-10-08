@@ -1,0 +1,14 @@
+#- id: sonoffbasic
+#  alias: 'Sonoffbasic'
+#  hide_entity: true
+#  trigger:
+#     platform: state
+#     entity_id: switch.sonoffbasic
+#     to: 'on'
+#  action:
+#     - delay:
+#         milliseconds: 20
+#     - service: switch.turn_off
+#       data:
+#         entity_id: 
+#           - switch.sonoffbasic

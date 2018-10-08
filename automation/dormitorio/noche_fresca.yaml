@@ -1,0 +1,32 @@
+- id: noche_fresca
+  alias: 'Noche fresca'
+  initial_state: false
+  hide_entity: false
+  trigger:
+     platform: time     
+     minutes: 5
+     seconds: 00  
+  action:
+    - service: switch.turn_on
+      entity_id: switch.aire
+    - delay:
+        minutes: 5
+    - service: switch.turn_off
+      entity_id: switch.aire
+
+- id: noche_fresca_ventilador
+  alias: 'Noche fresca ventilador'
+  initial_state: false
+  hide_entity: false
+  trigger:
+   platform: time 
+   minutes: 30
+   seconds: 00  
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ventilador
+    - delay:
+        minutes: 30
+    - service: switch.turn_off
+      entity_id: switch.ventilador
+ 

@@ -1,0 +1,8 @@
+temperaturacasa:
+  name: "2. Temperatura Casa"
+  view: yes
+  entities:
+    - group.temperatura
+    - group.humitat
+    - group.pressio
+    - group.sensorllum

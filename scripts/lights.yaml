@@ -1,0 +1,140 @@
+# oculto (customize.yaml)
+led_dormitori_on:
+  alias: 'Led dormitori ON'
+  sequence:
+     - service: light.turn_on
+       entity_id: light.yeelight_strip_286c07af341b
+
+# oculto (customize.yaml)
+led_dormitori_off:
+  alias: 'Led dormitori OFF'
+  sequence:
+     - service: light.turn_off
+       entity_id: light.yeelight_strip_286c07af341b
+
+# oculto (customize.yaml)
+bombilla1_on:
+  alias: 'Bombilla1 ON'
+  sequence:
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla1
+          brightness: 555
+          rgb_color: [255,164,73]
+
+bombilla1_on_rojo:
+  alias: 'Bombilla1 ON rojo'
+  sequence:
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla1
+          brightness: 555
+          rgb_color: [255,0,0]
+
+bombilla1_on_verde:
+  alias: 'Bombilla1 ON verde'
+  sequence:
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla1
+          brightness: 555
+          rgb_color: [0,255,0]
+          
+# oculto (customize.yaml)
+bombilla1_off:
+  alias: 'Bombilla1 OFF'
+  sequence:
+    - service: light.turn_off
+      entity_id: light.bombilla1
+      
+bombilla_test_colors:
+  alias: 'Bombilla test colors'
+  sequence:
+    - service: light.turn_on      
+      data:
+        entity_id: light.bombilla2
+        # máximo brillo
+        brightness: 255 
+        rgb_color: [255, 0, 0]
+
+# oculto (customize.yaml)
+bombilla2_on:
+  alias: 'Bombilla2 ON'
+  sequence:
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla2
+          brightness: 555
+          rgb_color: [255,164,73]
+
+bombilla2_on_rojo:
+  alias: 'Bombilla2 ON rojo'
+  sequence:
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla2
+          brightness: 555
+          rgb_color: [255,0,0]
+
+bombilla2_on_verde:
+  alias: 'Bombilla2 ON verde'
+  sequence:
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla2
+          brightness: 555
+          rgb_color: [0,255,0]
+                        
+# oculto (customize.yaml)
+bombilla2_off:
+  alias: 'Bombilla2 OFF'
+  sequence:
+    - service: light.turn_off
+      entity_id: light.bombilla2
+
+# oculto (customize.yaml)
+bombilla2_info_alarm_on:
+  alias: 'Bombilla2 info alarm'
+  sequence:
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla2
+          brightness: 255
+          rgb_color: [4,26,255]
+          #color_temp: 240  <<<--- ¿?¿¿?¿?¿?¿?
+          #effect: 'Slowdown'
+    - delay:
+        seconds: 5
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla2
+          brightness: 200
+          rgb_color: [255,164,73]    
+    - delay:
+          minutes: 15
+    - service: light.turn_on
+      data:
+          entity_id: light.bombilla2
+          brightness: 555
+          rgb_color: [255,164,73]
+          #effect: 'Slowdown'
+    - service: script.bombilla2_off
+
+
+#EFFECT_DISCO = "Disco"
+#EFFECT_TEMP = "Slow Temp"
+#EFFECT_STROBE = "Strobe epilepsy!"
+#EFFECT_STROBE_COLOR = "Strobe color" <<<- ALARMA HA SALTADO
+#EFFECT_ALARM = "Alarm"
+#EFFECT_POLICE = "Police"
+#EFFECT_POLICE2 = "Police2"
+#EFFECT_CHRISTMAS = "Christmas"
+#EFFECT_RGB = "RGB"
+#EFFECT_RANDOM_LOOP = "Random Loop"
+#EFFECT_FAST_RANDOM_LOOP = "Fast Random Loop"
+#EFFECT_SLOWDOWN = "Slowdown"
+#EFFECT_WHATSAPP = "WhatsApp"
+#EFFECT_FACEBOOK = "Facebook"
+#EFFECT_TWITTER = "Twitter"
+#EFFECT_STOP = "Stop"          
+          

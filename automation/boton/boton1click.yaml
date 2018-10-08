@@ -1,0 +1,17 @@
+- id: boton_1_click
+  alias: 'Boton 1 click'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001ef87ed
+        click_type: single
+  action:
+    - service: light.toggle
+      entity_id: light.bombilla2
+#      data:
+#          entity_id: light.bombilla2
+#          brightness: 555
+#          rgb_color: [255,164,73]
+      

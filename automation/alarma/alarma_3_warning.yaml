@@ -1,0 +1,48 @@
+- id: alarm_warning
+  alias: '[Alarm] Warning'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'warning'
+  action:
+  # LLum rotja baix
+  # Llum rotja saló
+  # delay 20 segons
+    - service: script.turn_on
+      data:
+        entity_id: script.bombilla2_on_rojo
+    - service: script.turn_on
+      data:
+        entity_id: script.bombilla1_on_rojo
+    
+    - service: xiaomi_aqara.play_ringtone
+      data:      
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 8
+    - service: xiaomi_aqara.play_ringtone
+      data:      
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 8
+    - service: xiaomi_aqara.play_ringtone
+      data:      
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 8
+    - service: xiaomi_aqara.play_ringtone
+      data:      
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 8
+    - service: xiaomi_aqara.play_ringtone
+      data:      
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 8
+    - service: xiaomi_aqara.play_ringtone
+      data:      
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 8

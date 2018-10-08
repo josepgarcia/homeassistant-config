@@ -1,0 +1,20 @@
+# oculto (customize.yaml)
+sonar_gw_baixet:
+  alias: 'Sonar GW baixet'
+  sequence:
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10
+        ringtone_vol: 4
+
+### Scripts to play gateway sounds ###
+# oculto (customize.yaml)
+play_sel_sound_single:
+  alias: "Play"
+  sequence:
+    - service: xiaomi_aqara.play_ringtone
+      data_template:
+        gw_mac: !secret gw_mac
+        ringtone_id: "{{ states.input_select.gateway_sound.state.split('-')[0] }}"
+        ringtone_vol: 60

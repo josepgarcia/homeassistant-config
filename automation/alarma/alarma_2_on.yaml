@@ -1,0 +1,13 @@
+- id: alarm_armed_away
+  alias: '[Alarm] Away Mode Armed'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'armed_away'
+  action:
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10005 # Silvido
+        ringtone_vol: 6

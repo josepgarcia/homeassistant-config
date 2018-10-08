@@ -1,0 +1,144 @@
+##########################################
+## Sonoff s20 http://192.168.3.75/
+## Bombeta
+##
+- platform: mqtt
+  name: "sonoffs20"
+  state_topic: "stat/sonoffs20/POWER"
+  command_topic: "cmnd/sonoffs20/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:power-socket-eu
+  
+##########################################
+## Sonoff s20 2 http://192.168.3.84/
+## Calentador
+##
+- platform: mqtt
+  name: "sonoffs202"
+  state_topic: "stat/sonoffs202/POWER"
+  command_topic: "cmnd/sonoffs202/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:power-socket-eu
+
+##########################################
+## Sonoff basic http://192.168.3.77/
+## NEUTRO
+- platform: mqtt
+  name: "sonoffbasic"
+  state_topic: "stat/sonoffbasic/POWER"
+  command_topic: "cmnd/sonoffbasic/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:car
+
+##########################################
+## Sonoff basic http://192.168.3.85/
+## VENTILADOR
+- platform: mqtt
+  name: "sonoffbasic2"
+  state_topic: "stat/sonoffbasic2/POWER"
+  command_topic: "cmnd/sonoffbasic2/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:fan
+  
+##########################################
+## Sonoff 4ch Pro r2 http://192.168.3.78/
+##
+- platform: mqtt
+  name: "4chPro1"
+  state_topic: "stat/sonoff4chpror2/POWER1"
+  command_topic: "cmnd/sonoff4chpror2/POWER1"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:numeric-1-box-outline
+  
+- platform: mqtt
+  name: "4chPro2"
+  state_topic: "stat/sonoff4chpror2/POWER2"
+  command_topic: "cmnd/sonoff4chpror2/POWER2"  
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true   
+  icon: mdi:numeric-2-box-outline
+  
+- platform: mqtt
+  name: "4chPro3"
+  state_topic: "stat/sonoff4chpror2/POWER3"
+  command_topic: "cmnd/sonoff4chpror2/POWER3"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true   
+  icon: mdi:numeric-3-box-outline
+  
+- platform: mqtt
+  name: "4chPro4"
+  state_topic: "stat/sonoff4chpror2/POWER4"
+  command_topic: "cmnd/sonoff4chpror2/POWER4"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true     
+  icon: mdi:numeric-4-box-outline
+
+##########################################
+## Broadlink RM mini 3
+##
+- platform: broadlink
+  name: "RMmini3"
+  host: !secret rm_mini_3_ip
+  mac: !secret rm_mini_3_mac
+  timeout: 15
+  switches:
+    aire:
+      friendly_name: "Aire"
+      # ON -> 24 low baixat
+      #command_on: 'JgBMAnA6DS0LLQ0QDBAODwwsCxIMEQwsCy4MEgouCxILEQwsDC0MEQwtDCwMEQ0QCy0MEAwRDC0MEQwQDBELEQwRCxIMEAsTChENDwwQDRELEQwRCxEMEQsSDBAODwwRDCwMDw0RCxENEAsRDCwNLA0QDRAKEgwRDRAMEAwsDRAMEQwRDBAMEQstDCwNEQssDSwNEAsTCy0MEQwQDBEMEQstDSsMEQ0QCy0NKw0QDSwMLQ0sCxILEQwRCxEMEQ0PDBEMEQwQDBELEQ0QChINEAwQDQ8NEQsQDRANEAwQDg8NEAsSDQ4NEQ0QDBENDgwRDRALEQ0QDQ8MEA0QDBELEQwRCxANEQsQDREMEA0QCxEMEQwQDBEMEQwsDBEKEwsRDCwMLQ0RCAACNnU4DisNLAwRDBEMEAwsDBEMEQwsDSwMEQ0rDRAMEQwsDisMEQ0sDCwNEQwPDCwNEQwQCy0NEQsRDBEMEAsRCxILEQwQDhANEAwQCxENEAwQDBEMEQsRDRAMEAsSDCwMEQsRCxIPCg8RDC0MLAwRDBANEAwQDRALEgwsDBAOEAwPDBINDgwtDC0MEQwsDSsMEgwRCy0NEAwRDBAKEwstDCwNEA0QDCwOKwwSCS8NLAouDBEMEQoSDBELEQsSCxEMEQsRDRALEQwRCxENEAwQCxENEQsRCxILEA4QCxILEQsRCxILEQwRCxENEAsRDBIMEAwQDBEMEAwQDRAMEQwRDBAMEQoSCxINDwwQDRAMEQsRDRENEAssDRAMEQ0PDSwMLAwRDAANBQAAAAAAAAAAAAAAAA==='
+      # ON -> 26 low baixet
+      command_on: 'JgBMAnA6DSwOKw4ODRANDw0sDRANDw4rDisNDw0sDg4ODwwsDisODw4qDisODwwQDisODw0PDSwODw0PDRAODw4ODRAODg0QDg4ODwwQDg8MEQwQDw4ODw0PDg8NDw4PDSwODg4PDBANEA4ODisNLA4ODRAODw0PDSwMEQwsDg8NDw0QDg4NEA4rDSsODwwtDSsODw4ODisNEA4ODg8ODg4rDC0NDw0QDisNKw4PDBEMEA4PDSsODw4ODRAODg0QDg4PDg4PDg4ODwwQDg8MEQ0PDg8NDw4PDQ8ODw0PDg4ODw4ODRAODw0PDg8ODg0QDRANDw4PDQ8ODwwQDg8MEA4PDBENDw4PDBAODw0PDg8NDw4PDBANEA4PDioNEAwsDSwOKw4PDQACMXQ7DioOKw4PDBAODw0rDg8MEQ0rDSwNEAwsDg8NEA4rDSwNDw0sDSwNDw4ODSwNEAwQDisODw0PDg8NDw4PDg4NEA4PDQ8NEA0PDg4NEA0QDBAODw0PDg8MEA8ODyoODwwQDg4ODw0PDisNLAwQDRAODw0PDSwNDw0sDBEMEA0QDQ8NEAwsDisODw0rDSwODw0PDSwODwwQDRAODg0sDisMEQ0PDisOKg4PDBAODwwQDisODw0PDBENDw4ODRANEAwQDg8NDw4PDQ8ODwwQDg8MEA4PDBAODwwQDRAODw0PDg8MEQ0PDRAMEA0QDBAODwwQDg8MEA0QDQ8NEAwQDBANEAwRDQ8NDw4PDRAMEA4PDBANEAwQDSwMEA4rDisNLA0PDQANBQAAAAAAAAAAAAAAAA==='
+      command_off: 'JgBMAnA4DSwNLAwRDRANEQwsDREMEQwtDCwNEQwsDREMEQwtDC0NEAwtDCwNEQwRDC0MEQwRDC0MEQwRDRANEQwRDBENEA0RDBENEA0QDREMEQwRDRANEQwRDBENEQwRDBEMEQ0RDBENEAwRDSwNLAwRDRANEQwRDC0MEQwtDBEMEQwRDRANEQwtDCwOEAwsDSwNEA0RDCwNEQwRDC0MLA0sDSwNEA0sDSwMLQ0rDSwNEA0sDRANEQwRDBENEA0RDBEMEQ4PDREMEQwRDREMEQwRDRANEQwRDBEMEQ0QDREMEQwRDRANEQwRDBENEA4QDRAMEQ0QDREMEQwRDRANEQwRDBENEQwRDBENEA0RDBEMEQ0QDREMLA0RDCwNEQwRDBENLA0QDQACMnI3DSwMLQwRDBENEA0sDRANEQwsDSwNEA0sDRENEAwtDCwNEQwsDSwNEA0RDC0NEAwRDSwMEQ0QDREMEQwRDRANEQwRDBENEA0RDBEMEQ0QDREMEQwRDRANEQwRDBENEA0RDBEMEQ0QDisNLA0QDREMEQwRDSwMEQ0sDRANEA0RDBEMEQ0sDC0NEAwtDC0MEQwRDSwMEQ0QDSwNLA0sDC0MEQwtDSwMLA0sDSwMEQ0sDBENEA0RDBEMEQ0QDREMEQwRDRANEQwRDBENEA0RDBEMEQ0RDBEMEQwRDREMEQwRDRANEQwRDBENEA0RDBEMEQ0QDREMEQwRDRANEQwRDBENEA0RDBEMEQ0QDREMEQwRDRANLA0RDCwNEQwRDBENLAwSDAANBQAAAAAAAAAAAAAAAA==='
+      # slots: slot_1 slot_2 para mas comandos ¿?
+    ventilador:
+      friendly_name: "Ventilador"
+      command_on: 'JgBUASsNKgwOKQ8oDycPKA8oDikPJw8oDygOAAEEKwwqDQ8nDygPKCoNKgwrDCsNKQ0qDCvnKwwrDA8oDycQJysMDygPJxAnDyYtDCroKgwrDA8oDygPJysMECcPKA8oDycrDCvnKwwqDQ8nECcPKCsMDycQJxAnDygqCi3nKwwrDA8oDycQJysMDygPKA8nECcrDCvnKg0pDQ8oDSoNKigPDSkOKQ0qDSooDinpKQ4pDg0qDSkOKSkODSoNKg0pDikpDijqKA8oDg4pDSoNKigODikNKg0qDSooDijqKwsrDQ8oDycPKCsMDikOKA8oDSoqDSjqKA8oDg4pDSoNKigODikOKQ0qDSooDinpKQ4oDw0qDSkOKSkODSoNKg0pDikpDijqKA8oDg0qDSoNKigODikNKg0qDSkpDinpKQ4oDw0pDikNKikODSoNKQ4pDSooDygADQUAAAAA==='
+      command_off: 'JgACASkOKA8NKg0pDikOKQ0qDSoNKQ4pDSoNAAEFKQ4oDg4pDikMKygPJw8oDykOJxAoDijqKQ4oDw0qDSkOKQ0qDSooDg4pDSoNKg0AAQUoDikODSoNKg0pDikOKSkODCsNKQ4pDQABBSgPJw8OKQ0qDSoNKQ4pKA8NKg0pDikNAAEFKQ4nDw4pDSoNKg0pDikoDw0qDSkOKQ0AAQUoDycQDSkOKQ0qDSoNKSkODSoNKg0pDgABBCgPKQ4NKg0pDikNKg0qKA4OKQ0qDSoNAAEFJxAnDw0qDSoNKg0pDikpDg0qDSkOKQ0AAQUoDygPDSkOKQ0qDSoNKSgPDikNKg0qDQANBQAAAAAAAA==='
+      # slots: slot_1 slot_2
+   ## ventilador_luz:
+   ##   friendly_name: "Ventilador Luz"
+   ##   command_on: 'JgACASgPKA8NKgwrDCsMKwwrDCsMKwwqDSoNAAEGKA8oDwwrDCsMKycQJw8oDygPKA8oDyjqKA8oDw0qDSoNKgwrDCsMKygPDCsMKg0AAQYoECcPDCsMKwwrDCsMKg0qKA8NKg0qDQABBigPJw8NKg0qDSoNKg0qDSooDwwrDCsMAAEGKA8oDw0qDCsMKwwrDCsMKycPDSoNKg0AAQYoDygPDCsMKwwqDSoNKg0rJw8NKg0qDAABBygPJw8NKg0qDSoNKgwrDCsoDwwrDCoNAAEGKA8oDwwrDCsMKwwrDCoNKigPDSoNKg0AAQYoDycPDSoNKg0qDSoNKg0qKA8MKwwrDAANBQAAAAAAAA==='
+    tvdormitori:
+      friendly_name: "TVdormitori"
+      command_on: 'JgBgAAABK5ERFRAVEDkSFBAVEBUQFBEUEDkROREVEDkRORE4ETkROREVEBQRFRA5ERQRFBAVEBUQORE5ETkRFBE4EjgRORE5EgAFKgABK0gTAAxeAAErSBEADF8AASdMEQANBQAAAAAAAAAA==='
+      command_off: 'JgBgAAABK5ERFRAVEDkSFBAVEBUQFBEUEDkROREVEDkRORE4ETkROREVEBQRFRA5ERQRFBAVEBUQORE5ETkRFBE4EjgRORE5EgAFKgABK0gTAAxeAAErSBEADF8AASdMEQANBQAAAAAAAAAA==='
+
+  

@@ -1,0 +1,71 @@
+##########################################
+## Sonoff s20 2 - Calentador
+##
+calentador_on:
+  alias: 'Calentador ON'
+  sequence:
+     - service: switch.turn_on
+       entity_id: switch.sonoffs202
+
+calentador_off:
+  alias: 'Calentador OFF'
+  sequence:
+     - service: switch.turn_off
+       entity_id: switch.sonoffs202
+
+##########################################
+## Sonoff basic 
+##
+
+
+##########################################
+## Sonoff 4ch http://192.168.3.78
+##
+abrir_puerta_entrada:
+  alias: Abrir puerta entrada
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: 
+          - switch.4chPro1
+    - delay:
+        milliseconds: 20
+    - service: switch.turn_off
+      data:
+        entity_id: 
+           - switch.4chPro1        
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.confirmacion_puerta
+
+abrir_puerta_garaje:
+  alias: Abrir puerta garaje
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: 
+          - switch.4chPro2
+    - delay:
+        milliseconds: 20
+    - service: switch.turn_off
+      data:
+        entity_id: 
+           - switch.4chPro2
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.confirmacion_puerta
+
+alarma_sonar:
+  alias: Alarma Sonar
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: 
+          - switch.4chPro3
+
+alarma_apagar:
+  alias: Alarma Apagar
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.4chPro3
+

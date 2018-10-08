@@ -1,0 +1,87 @@
+##########################################
+## Foto OBRIR porta garatge
+##
+- alias: Foto porta garatge
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+      from: 'off'
+      to: 'on'
+  action:
+    - delay:
+        seconds: 7
+    - service: script.turn_on
+      data:
+        entity_id: script.enviar_foto_telegram
+
+##########################################
+## Aviso puerta entrada abierta
+##
+- alias: Aviso porta entrada 30 minuts
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001b7bd84
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001b7bd84
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 20
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001b7bd84
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 25
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001b7bd84
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 30
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: 'Porta entrada oberta!! @josepgarcia'
+
+
+##########################################
+## Aviso puerta garaje abierta
+##
+- alias: Porta garatge 30 minuts
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 20
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 25
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 30
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: 'Porta garatge oberta!! @josepgarcia'

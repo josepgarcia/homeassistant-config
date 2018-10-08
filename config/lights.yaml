@@ -1,0 +1,14 @@
+- platform: yeelight
+  devices:
+    192.168.3.74:
+      name: LedsDormitori
+      use_music_mode: False
+      save_on_change: True
+    192.168.3.76:
+      name: Bombilla1
+      use_music_mode: False
+      save_on_change: True
+    192.168.3.80:
+      name: Bombilla2
+      use_music_mode: False
+      save_on_change: True  

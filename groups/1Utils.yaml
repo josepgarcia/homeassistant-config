@@ -1,0 +1,10 @@
+utils:
+  name: "1. Utils"
+  view: yes
+  entities:
+    - group.dispositivosdormitorio
+    - group.luces
+    - group.switchsonoff        
+    - group.dormitorio
+    - group.pihole
+    - group.todascamaras

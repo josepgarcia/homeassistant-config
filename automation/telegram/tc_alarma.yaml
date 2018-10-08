@@ -1,0 +1,81 @@
+##########################################
+## Alarma ON
+##
+- id: tc_alarma
+  alias: '[Alarm] TC Alarma'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/alarmON'
+#    - platform: event
+#      event_type: telegram_command
+#      event_data:
+#        command: '/alarma_ON'
+  condition:
+    condition: state
+    entity_id: input_boolean.confirmacion_alarma
+    state: 'off'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "ALARMA 30 segundos para *Confirmar*"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.confirmacion_alarma
+    - delay: 30
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.confirmacion_alarma
+ 
+- id: tc_alarma_confirmar
+  alias: '[Alarm] TC Alarma confirmar'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/alarmON'
+  condition:
+    condition: state
+    entity_id: input_boolean.confirmacion_alarma
+    state: 'on'
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.house
+
+##########################################
+## Alarma OFF
+##
+- id: alarm_disarmed_away
+  alias: '[Alarm] Telegram Away Mode DISArmed'
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/alarmOFF'
+    - platform: event
+      event_type: click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001ef87ed
+        click_type: double
+    - platform: event
+      event_type: click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001ef87ed
+        click_type: long_click_press
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.house
+        code: !secret alarm_code
+    - service: automation.turn_off
+      entity_id: automation.sirena1
+    - service: automation.turn_off
+      entity_id: automation.sirena2
+    - service: automation.turn_off
+      entity_id: automation.sirena3
+#    - service: notify.AireCarlet
+#      data:
+#        message: "Alarma *desactivada* 2222222"

@@ -1,0 +1,125 @@
+##########################################
+## Log entrada
+##
+- alias: Presencia
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000222e398
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.log_all
+    state: 'on'  
+  action:
+     - service: notify.AireCarlet
+       data:
+         message: Entrada Presencia 1 {{now().strftime("%Y/%m/%d %H:%M:%S")}}
+
+##########################################
+## Log pasillo habitaciones
+##
+- alias: Presencia2
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001f9d516
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.log_all
+    state: 'on'  
+  action:
+     - service: notify.AireCarlet
+       data:
+         message: Habitacions Presencia 2 {{now().strftime("%Y/%m/%d %H:%M:%S")}}
+
+##########################################
+## Log estudi
+##
+- alias: Presencia3
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000236b6a6
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.log_all
+    state: 'on'  
+  action:
+     - service: notify.AireCarlet
+       data:
+         message: Estudi Presencia 3 {{now().strftime("%Y/%m/%d %H:%M:%S")}}
+
+##########################################
+## Log puerta entrada abierta
+##
+- alias: 'Telegram porta entrada oberta'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_158d0001b7bd84
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.log_all
+    state: 'on'  
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: Porta entrada oberta {{now().strftime("%Y/%m/%d %H:%M:%S")}}
+
+##########################################
+## Log puerta entrada cerrada
+##
+- alias: 'Telegram porta entrada tancada'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_158d0001b7bd84
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: input_boolean.log_all
+    state: 'on'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: Porta entrada tancada {{now().strftime("%Y/%m/%d %H:%M:%S")}}
+
+##########################################
+## Log puerta garaje abierta
+##
+- alias: 'Telegram porta garatge oberta'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.log_all
+    state: 'on'  
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: Porta garatge oberta {{now().strftime("%Y/%m/%d %H:%M:%S")}}
+
+##########################################
+## Log puerta garaje cerrada
+##
+- alias: 'Telegram porta garatge tancada'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: input_boolean.log_all
+    state: 'on'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: Porta garatge tancada {{now().strftime("%Y/%m/%d %H:%M:%S")}}

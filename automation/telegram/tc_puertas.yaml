@@ -1,0 +1,83 @@
+##########################################
+## Puerta ENTRADA
+##
+- alias: 'TC Abrir puerta entrada'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/AbrirEntrada'
+  condition:
+    condition: state
+    entity_id: input_boolean.confirmacion_puerta
+    state: 'off'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "Abrir entrada, tienes 30 segundos para *Confirmar*"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.confirmacion_puerta
+    - delay: 30
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.confirmacion_puerta
+
+- alias: 'TC Abrir puerta entrada confirmado'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/AbrirEntrada'
+  condition:
+    condition: state
+    entity_id: input_boolean.confirmacion_puerta
+    state: 'on'      
+  action:
+    - service: script.turn_on
+      entity_id: script.abrir_puerta_entrada
+    - service: notify.AireCarlet
+      data:
+        message: "Puerta principal *Abierta*"
+
+##########################################
+## Puerta GARAKE
+##
+- alias: 'TC Abrir puerta garaje'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/AbrirGaraje'
+  condition:
+    condition: state
+    entity_id: input_boolean.confirmacion_puerta_garaje
+    state: 'off'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "Abrir garaje, tienes 30 segundos para *Confirmar*"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.confirmacion_puerta_garaje
+    - delay: 30
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.confirmacion_puerta_garaje
+
+- alias: 'TC Abrir puerta garaje confirmado'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/AbrirGaraje'
+  condition:
+    condition: state
+    entity_id: input_boolean.confirmacion_puerta_garaje
+    state: 'on'      
+  action:
+    - service: script.turn_on
+      entity_id: script.abrir_puerta_garaje
+    - service: notify.AireCarlet
+      data:
+        message: "Puerta garaje *Abierta*"

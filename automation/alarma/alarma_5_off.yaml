@@ -1,0 +1,48 @@
+- id: alarm_disarmed_2
+  alias: '[Alarm] Disarmed'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'disarmed'
+  action:
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10005
+        ringtone_vol: 6
+    - service: automation.turn_off
+      entity_id: automation.sirena1
+    - service: automation.turn_off
+      entity_id: automation.sirena2
+    - service: automation.turn_off
+      entity_id: automation.sirena3
+
+
+- id: alarm_disarmed_3
+  alias: '[Alarm] Disarmed 3'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      from: 'warning'
+      to: 'disarmed'
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Alarma, Cambio de Warning a disarmed"
+
+- id: alarm_disarmed_4
+  alias: '[Alarm] Disarmed 4'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      from: 'triggered'
+      to: 'disarmed'
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Alarma, Cambio de triggered a disarmed"

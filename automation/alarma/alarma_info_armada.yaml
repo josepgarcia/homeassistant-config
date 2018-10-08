@@ -1,0 +1,20 @@
+- id: alarma_info_armada
+  alias: 'Alarma info armada'
+  hide_entity: true
+  trigger:
+    entity_id: binary_sensor.motion_sensor_158d0001f9d516
+    platform: state
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '06:45:00'
+        before: '09:00:00'
+      - condition: state
+        entity_id: alarm_control_panel.house
+        state: 'armed_away'
+  action:  
+    service: script.turn_on
+    data:
+        entity_id: script.bombilla2_info_alarm_on

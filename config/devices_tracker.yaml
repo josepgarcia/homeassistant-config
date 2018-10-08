@@ -1,0 +1,8 @@
+- platform: nmap_tracker
+  hosts: 192.168.3.0/24
+  interval_seconds: 180
+  consider_home: 360
+  scan_options: " –privileged -sP –host-timeout 3s "
+  new_device_defaults:
+    track_new_devices: False
+    hide_if_away: True

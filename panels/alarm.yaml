@@ -1,0 +1,49 @@
+platform: bwalarm
+name: House
+
+code: !secret alarm_code #Code, should consist of one or more digits ie 6482
+panic_code: !secret panic_code #[OPTIONAL] Panic Code should consist of one or more digits ie 9876, it needs to be different to your standard alarm code. This enables a special panic mode. This can be used under duress to deactivate the alarm which would appear to the unseeing eye as deactivated however a special attribute [panic_mode] listed under the alarm_control_panel.[identifier] will change to ACTIVE. This status could be used in your automations to send a notification to someone else police/spouse/sibling/neighbour that you are under duress. To deactive this mode arm then disarm your alarm in the usual manner. 
+
+pending_time: 20 #Grace time in seconds to allow for exit and entry using Away mode
+trigger_time: 600
+
+alarm: automation.alarm_triggered
+warning: automation.alarm_warning
+
+clock: True  #Optional - True enables a clock in the center of the status bar
+perimeter_mode: False #Optional - True enables perimeter mode, this could be known as 'Day Mode' i.e. only arm the doors whilst there is someone using all floors
+weather: False #Optional - Allows a weather summary to be displayed on the status bar. Dark Sky weather component must be enabled with the name sensor.dark_sky_summary
+
+#### COLOURS ###########  Use any HTML format
+warning_colour: 'orange'
+pending_colour: 'orange'
+disarmed_colour: '#03A9F4'
+armed_home_colour: 'black'
+armed_away_colour: 'black'
+triggered_colour: 'red'
+
+############# SENSOR GROUPS ########################
+# Sensors in this group tigger the alarm immediately
+#immediate:
+#  - binary_sensor.door_window_sensor_158d0001a7eafb #porta garatge
+#  - binary_sensor.door_window_sensor_158d0001a99eb0
+#  - binary_sensor.door_window_sensor_xxxxxxxxxxxx
+
+# Sensors in this group start the clock (pending_time) when tripped before the alarm is activated in 'Away' mode
+delayed:
+  - binary_sensor.door_window_sensor_158d0001a7eafb #porta garatge
+  - binary_sensor.door_window_sensor_158d0001b7bd84 #porta entrada
+#  - binary_sensor.motion_sensor_158d000222e398 #presencia (baix, desactivat per si se despega i cau...)
+
+# Same as notathome but hopefully the title is more self explanatory. Can still use notathome for backwards compatibility
+# Note sensors can exist in more than one group notice top_floor appears in two groups
+#homemodeignore:
+#  - binary_sensor.door_window_sensor_158d0001a7eafb #porta garatge
+
+# Use this group to automatically override the warning message on open sensors when setting 'away' mode. (I use this as I have a motion sensor at the front door)
+#override:
+#  - binary_sensor.door_window_sensor_xxxxxxxxxxxxxxxxxxx
+
+# This group is special and only effects 'perimeter mode'. If perimeter_mode is enabled then any sensor in this group will trigger the alarm immediately if arm perimeter is set. There is no delayed group for this mode (unless requested as a feature of course!)
+#perimeter:
+#  - binary_sensor.garage_door_sensor

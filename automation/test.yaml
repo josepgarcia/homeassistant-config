@@ -1,0 +1,15 @@
+- alias: mqtt restart pir
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_pruebas
+    to: 'on'
+    for:
+      seconds: 2
+  action:
+    service: mqtt.publish
+    data:
+      topic: tele/sonoffrfbridge/RESULT
+      payload: '{"RfReceived":{"Data":"A055off"}}'
+      retain: "true"

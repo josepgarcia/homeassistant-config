@@ -1,0 +1,30 @@
+- id: alarma_automatico_on
+  alias: '[Alarm] Automatico ON'
+  ##hide_entity: true
+  trigger:
+     - platform: time
+       at: '23:00:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.en_vacaciones
+    state: 'off'
+  action:
+     - service: alarm_control_panel.alarm_arm_away
+       data:
+         entity_id: alarm_control_panel.house
+
+- id: alarma_automatico_off
+  alias: '[Alarma] Automatico OFF'
+  ##hide_entity: true
+  trigger:
+     - platform: time
+       at: '07:30:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.en_vacaciones
+    state: 'off'     
+  action:
+     - service: alarm_control_panel.alarm_disarm
+       data:
+         entity_id: alarm_control_panel.house
+         code: !secret alarm_code

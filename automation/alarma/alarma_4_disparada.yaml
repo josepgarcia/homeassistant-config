@@ -1,0 +1,10 @@
+- id: alarm_triggered
+  alias: '[Alarm] Triggered'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'triggered'
+  action:
+    - service: automation.turn_on
+      entity_id: automation.sirena1

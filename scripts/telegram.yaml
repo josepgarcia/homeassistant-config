@@ -1,0 +1,96 @@
+# oculto (customize.yaml)
+info_estado_tot:
+  alias: 'Info estado todos los sensores'
+  sequence:
+    - service: notify.AireCarlet
+      data:
+        message:
+         "*** TEMPERATURA: ***\n
+         Estudi: {{ states.sensor.temperature_158d00022736ec.state}} ºC \n
+         Dormitori: {{ states.sensor.temperature_158d0001f5669a.state}} ºC \n
+         Saló: {{ states.sensor.temperature_158d0001f23dca.state}} ºC \n
+         Exterior: {{ states.sensor.temperature_158d0002273b84.state}} ºC \n
+         ***SENSORS: ***\n
+         Sensor estudi: {{ states.binary_sensor.motion_sensor_158d000236b6a6.state }} \n
+         Sensor habitacions: {{ states.binary_sensor.motion_sensor_158d0001f9d516.state }} \n
+         Sensor entrada: {{ states.binary_sensor.motion_sensor_158d000222e398.state }} \n
+         Porta entrada: {{ states.binary_sensor.door_window_sensor_158d0001b7bd84.state }} \n
+         Porta garatge: {{ states.binary_sensor.door_window_sensor_158d0001a7eafb.state }} \n
+         ***VARIABLES ***\n
+         Log all: {{ states.input_boolean.log_all.state }}\n
+         En vacaciones: {{ states.input_boolean.en_vacaciones.state }}\n
+         ***LLUMS ***\n
+         Leds dormitori: {{ states.light.ledsdormitori.state }} \n
+         Bombilla saló: {{ states.light.bombilla2.state }}\n
+         Bombilla baix: {{ states.light.bombilla1.state }}\n
+         ***ALARMA ***\n
+         {% if states.alarm_control_panel.house.state == 'armed_away' %}activada
+         {% elif states.alarm_control_panel.house.state == 'pending' %}activant-se
+         {% else %}desactivada{% endif %}"
+
+# oculto (customize.yaml)
+info_estado_tot_ana:
+  alias: 'Info estado todos los sensores Ana'
+  sequence:
+    - service: notify.AireCarlet_A
+      data:
+        message:
+         "*** TEMPERATURA: ***\n
+         Estudi: {{ states.sensor.temperature_158d00022736ec.state}} ºC \n
+         Dormitori: {{ states.sensor.temperature_158d0001f5669a.state}} ºC \n
+         Saló: {{ states.sensor.temperature_158d0001f23dca.state}} ºC \n
+         Exterior: {{ states.sensor.temperature_158d0002273b84.state}} ºC \n
+         ***LLUMS ***\n
+         Leds dormitori: {{ states.light.ledsdormitori.state }} \n
+         Bombilla saló: {{ states.light.bombilla2.state }}\n
+         Bombilla baix: {{ states.light.bombilla1.state }}\n
+         ***SENSORS: ***\n
+         Sensor estudi: {{ states.binary_sensor.motion_sensor_158d000236b6a6.state }} \n
+         Sensor habitacions: {{ states.binary_sensor.motion_sensor_158d0001f9d516.state }} \n
+         Sensor entrada: {{ states.binary_sensor.motion_sensor_158d000222e398.state }} \n
+         Porta entrada: {{ states.binary_sensor.door_window_sensor_158d0001b7bd84.state }} \n
+         Porta garatge: {{ states.binary_sensor.door_window_sensor_158d0001a7eafb.state }} \n
+         ***ALARMA ***\n
+         {% if states.alarm_control_panel.house.state == 'armed_away' %}activada
+         {% elif states.alarm_control_panel.house.state == 'pending' %}activant-se
+         {% else %}desactivada{% endif %}"
+
+# oculto (customize.yaml)
+info_temperatura_telegram_ana:
+  alias: 'Parte meteo Telegram Ana'
+  sequence:
+    - service: notify.AireCarlet_A
+      data:
+        message:
+         "*** TEMPERATURA: ***\n
+          Estudi: {{ states.sensor.temperature_158d00022736ec.state}} ºC \n
+          Dormitori: {{ states.sensor.temperature_158d0001f5669a.state}} ºC \n
+          Saló: {{ states.sensor.temperature_158d0001f23dca.state}} ºC \n
+          Exterior: {{ states.sensor.temperature_158d0002273b84.state}} ºC \n"
+
+enviar_foto_telegram:
+    alias: 'Envío foto telegram'
+    sequence:
+        - service: shell_command.take_snapshot
+        - delay:
+            seconds: 1
+        - service: notify.AireCarlet
+          data:
+            title: ""
+            message: ""
+            data:
+              photo:
+                - file: /home/homeassistant/capturas/captura1.jpg
+                  caption: 'Captura entrada'
+                  
+keyboard_principal_airecarlet:
+    alias: 'Keyboard principal AireCarlet'
+    sequence:
+        - service: notify.AireCarlet
+          data:
+            message: 'Comandos disponibles'
+            data:
+                keyboard:
+                    - '/status, /ping, /avanzado'
+                    - '/automation, /remoto'
+                    - '/alarma, /puertas, /switches'

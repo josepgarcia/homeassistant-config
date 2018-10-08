@@ -1,0 +1,46 @@
+##########################################
+## En VACACIONES
+##
+- id: en_vacaciones_on
+  alias: 'En vacaciones ON'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.en_vacaciones
+    to: 'on'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "Modo EN VACACIONES *activado*"    
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.sonoffs20
+    - service: switch.turn_off
+      data:
+        entity_id: 
+          - switch.sonoffs202
+
+# Switches a ON, cuando cambiamos a "OFF EN VACACIONES"
+# será de día, por lo que tienen que estar ON el
+# calentador y la bomba de agua
+- id: en_vacaciones_off
+  alias: 'En vacaciones OFF'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.en_vacaciones
+    to: 'off'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "Modo EN VACACIONES *desactivado*"    
+    - service: switch.turn_on
+      data:
+        entity_id: 
+          - switch.sonoffs20
+    - service: switch.turn_on
+      data:
+        entity_id: 
+          - switch.sonoffs202
+    

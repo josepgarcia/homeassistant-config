@@ -1,0 +1,39 @@
+- alias: mqtt restart pir
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.sonoffrfbridge
+    to: 'on'
+    for:
+      seconds: 2
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Movimiento detectado"  
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge/RESULT
+         payload: '{"RfReceived":{"Data":"F0330Aoff"}}'
+         retain: "true"
+         
+- alias: mqtt restart pir2
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.sonoffrfbridge2
+    to: 'on'
+    for:
+      seconds: 2
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Movimiento detectado 2"  
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge2/RESULT
+         payload: '{"RfReceived":{"Data":"F0330Aoff"}}'
+         retain: "true"         

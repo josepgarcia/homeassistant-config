@@ -1,0 +1,102 @@
+baterias:
+    name: Baterias
+    entities:
+        - sensor.bateria_porta_garatge
+        - sensor.bateria_porta_entrada
+        - sensor.bateria_presencia1
+        - sensor.bateria_presencia2
+        - sensor.bateria_presencia3
+        
+multisensor:
+  name: Sensors 
+  entities:
+     - binary_sensor.door_window_sensor_158d0001a7eafb
+     - binary_sensor.door_window_sensor_158d0001b7bd84
+     - binary_sensor.motion_sensor_158d000222e398
+     - binary_sensor.motion_sensor_158d0001f9d516
+     - binary_sensor.motion_sensor_158d000236b6a6 # Presnecia3
+
+temperatura:
+  name: Temperatura
+  view: no
+  entities:
+     - sensor.temperature_158d0002273b84 
+     - sensor.temperature_158d0001f5669a
+     - sensor.temperature_158d0001f23dca
+     - sensor.temperature_158d00022736ec
+
+humitat:
+  name: Humitat
+  view: no
+  entities:
+     - sensor.humidity_158d0002273b84
+     - sensor.humidity_158d0001f5669a
+     - sensor.humidity_158d0001f23dca
+     - sensor.humidity_158d00022736ec
+
+pressio:
+  name: Pressió 
+  view: no
+  entities:
+     - sensor.pressure_158d0002273b84
+     - sensor.pressure_158d0001f5669a
+     - sensor.pressure_158d0001f23dca
+     - sensor.pressure_158d00022736ec
+
+sensorllum:
+  name: Sensor Llum
+  entities:
+     - sensor.illumination_7811dcb21feb #gw
+     - sensor.illumination_158d000222e398 #presencia
+     - sensor.illumination_158d0001f9d516 #presencia2 
+     - sensor.illumination_158d000236b6a6 #presencia3
+
+gwtestsounds:
+  name: Sonidos GW
+  entities:
+     - input_select.gateway_sound    
+     - script.play_sel_sound_single
+
+dispositivosdormitorio:
+  name: Dormitori
+  entities:
+     - switch.aire
+     - switch.ventilador
+     - switch.tvdormitori
+     - light.ledsdormitori
+ 
+switchsonoff:
+  name: Sonoff
+  entities:
+     - switch.sonoffs20
+     - switch.sonoffs202
+     
+todascamaras:
+  name: Camaras
+  entities:
+      - camera.cam_estudi
+      
+dormitorio:
+  name: Dormitorio
+  entities:
+      - script.airedormitorio_x_minutos
+
+pihole:
+  name: Pi-Hole
+  view: no
+  entities:
+      - sensor.pihole_ads_blocked_today
+      - sensor.pihole_ads_percentage_blocked_today
+      - sensor.pihole_dns_queries_cached
+      - sensor.pihole_dns_queries_forwarded
+      - sensor.pihole_dns_queries_today
+      - sensor.pihole_dns_unique_clients
+      - sensor.pihole_dns_unique_domains
+      - sensor.pihole_domains_blocked
+
+luces:
+    name: Luces
+    entities:
+        - light.bombilla1
+        - light.bombilla2
+        - light.ledsdormitori

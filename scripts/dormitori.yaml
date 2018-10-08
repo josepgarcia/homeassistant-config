@@ -1,0 +1,9 @@
+#airedormitorio_x_minutos:
+#  alias: Aire dormitorio 15 minutos
+#  sequence:    
+#    - service: switch.turn_on
+#      entity_id: switch.aire
+#    - delay:
+#        minutes: 1
+#    - service: switch.turn_off
+#      entity_id: switch.aire

@@ -1,0 +1,168 @@
+##########################################
+## KEYBOARD - start
+##
+- alias: 'TC start'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/start'
+  action:
+     - service: script.turn_on
+       data:
+            entity_id: script.keyboard_principal_airecarlet
+
+##########################################
+## KEYBOARD - avanzado
+##
+- alias: 'TC avanzado'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/avanzado'
+  action:
+     - service: notify.AireCarlet
+       data:
+          message:
+                "*Avanzado*\n
+                - Log: *{{ states.input_boolean.log_all.state }}*\n
+                - Vacaciones: *{{ states.input_boolean.en_vacaciones.state }}*"
+          data:
+            keyboard:
+              - '/logon, /logoff' 
+              - '/vacacionesON, /vacacionesOFF'
+              - '/start'
+              
+##########################################
+## KEYBOARD - switches
+##
+- alias: 'TC switches'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/switches'
+  action:
+     - service: notify.AireCarlet
+       data:
+          message:
+                "*Switches*\n
+                Luz entrada: *{{ states.light.bombilla1.state }}*\n
+                Luz salón: *{{ states.light.bombilla2.state }}*\n
+                Calentador: *{{ states.switch.sonoffs202.state }}*"
+          data:
+            keyboard:
+              - '/luzentradaON, /luzentradaOFF'        
+              - '/luzsalonON, /luzsalonOFF'
+              - '/calentadorON, /calentadorOFF'
+              - '/start'
+
+##########################################
+## KEYBOARD - puertas
+##
+- alias: 'TC Puertas'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/puertas'
+  action:
+     - service: notify.AireCarlet
+       data:
+          message:
+                "*Puertas*\n"
+          data:
+            keyboard:
+              - '/AbrirEntrada, /AbrirGaraje'        
+              - '/start'
+     - delay:
+         minutes: 1
+     - service: script.turn_on
+       data:
+            entity_id: script.keyboard_principal_airecarlet
+     
+##########################################
+## KEYBOARD - alarma
+##
+- alias: 'TC Alarma'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/alarma'
+  action:
+     - service: notify.AireCarlet
+       data:
+          message:
+                "*Alarma* estado: 
+                {% if states.alarm_control_panel.house.state == 'armed_away' %}activada
+                {% elif states.alarm_control_panel.house.state == 'pending' %}activant-se
+                {% else %}desactivada{% endif %}"
+          data:
+            keyboard:
+              - '/alarmON, /alarmOFF'        
+              - '/start'
+              
+
+##########################################
+## KEYBOARD - automation
+##
+- alias: 'TC Automation'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/automation'
+  action:
+     - service: notify.AireCarlet
+       data:
+          message:
+                "*Automation*\n"
+          data:
+            keyboard:
+              - '/capturafoto, /nada'        
+              - '/start'
+
+##########################################
+## KEYBOARD - remoto
+##
+- alias: 'TC Remoto'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/remoto'
+  action:
+     - service: notify.AireCarlet
+       data:
+          message:
+                "*Remoto*\n"
+          data:
+            keyboard:
+              - 'Dormitori: /AireOn, /AireOff'
+              - 'Dormitori: /VentiladorOn, /VentiladorOff'
+              - '/start'
+
+
+##########################################
+## KEYBOARD - ping
+##
+- alias: 'TC ping'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/ping'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "pong"

@@ -1,0 +1,5 @@
+#default_view:
+#  view: yes
+#  name: "1. Inicio"
+#  entities:
+#    - group.multisensor    

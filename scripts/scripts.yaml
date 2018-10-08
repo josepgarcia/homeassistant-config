@@ -1,0 +1,9 @@
+reboot_pi:
+  alias: Reboot the Pi
+  sequence:
+    - service: shell_command.cmd_reboot_pi
+
+whoami:
+  alias: WhoAmI
+  sequence:
+    - service: shell_command.cmd_whoami

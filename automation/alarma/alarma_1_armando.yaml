@@ -1,0 +1,55 @@
+- id: alarm_arming_away
+  alias: '[Alarm] Away Mode Arming'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'pending'
+  condition: # Si se activa entre estas horas el GW suena para avisar
+    - condition: time
+      after: '09:00:00'
+      before: '22:00:00'
+  action:
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 6
+    - delay:
+        seconds: 1
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 6
+    - delay:
+        seconds: 1
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 6
+    - delay:
+        seconds: 1
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 6
+    - delay:
+        seconds: 1
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 6
+    - delay:
+        seconds: 1
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10003
+        ringtone_vol: 6
+    - delay:
+        seconds: 1
+      

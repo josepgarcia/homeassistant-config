@@ -1,0 +1,61 @@
+##########################################
+## En vacaciones - ON OFF
+##
+- alias: 'TC vacaciones ON'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/vacacionesON'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.en_vacaciones  
+         
+- alias: 'TC vacaciones OFF'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/vacacionesOFF'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.en_vacaciones
+         
+##########################################
+## log all - ON OFF
+##
+- alias: 'TC logon'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/logon'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.log_all  
+    - service: notify.AireCarlet
+      data:
+        message:
+         "Log all: {{ states.input_boolean.log_all.state }}"
+        
+- alias: 'TC logoff'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/logoff'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.log_all
+    - service: notify.AireCarlet
+      data:
+        message:
+         "Log all: {{ states.input_boolean.log_all.state }}"

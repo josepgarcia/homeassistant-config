@@ -1,0 +1,46 @@
+#- id: leds_mati
+#  alias: 'Leds matí'
+#  #initial_state: false
+#  hide_entity: true
+#  trigger:
+#     - platform: time
+#       at: '07:57'
+#  condition:
+#    condition: time
+#    weekday:
+#      - mon
+#      - tue
+#      - wed
+#      - thu
+#      - fri
+#  action:
+#    - service: light.turn_on
+#      entity_id: light.yeelight_strip_286c07af341b
+#    - delay: 0:03
+#    - service: light.turn_off
+#      entity_id: light.yeelight_strip_286c07af341b
+
+- id: leds_nit
+  alias: 'Leds nit'
+  #initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001f9d516
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sun
+    - condition: time
+      after: '21:15:00'
+      before: '22:00:00'    
+  action:
+    - service: light.turn_on
+      entity_id: light.yeelight_strip_286c07af341b      

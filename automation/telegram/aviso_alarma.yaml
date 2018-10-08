@@ -1,0 +1,83 @@
+##########################################
+## Aviso alarma ON
+##
+#- id: aviso_alarma
+#  alias: '[Alarm] Aviso alarma'
+#  hide_entity: true
+#  trigger:
+#    - platform: state
+#      entity_id: alarm_control_panel.house
+#      to: 'armed_away'
+#  action:
+#    - service: xiaomi_aqara.play_ringtone
+#      data:
+#        gw_mac: !secret gw_mac
+#        ringtone_id: 10005
+#        ringtone_vol: 6
+#    - service: notify.AireCarlet
+#      data:
+#        message: "ALARMA *Activada*, sin comprobar si JOSEP está fuera de casa"
+
+- id: aviso_alarma2
+  alias: '[Alarm] Aviso alarma 2'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'armed_away'
+  condition:
+      condition: state
+      entity_id: device_tracker.8cf5a3000fce
+      state: 'not_home'
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Alarma *Activada* @josepgarcia detectado FUERA DE CASA"
+
+##########################################
+## Aviso alarma WARNING
+##
+- id: aviso_alarma_warning
+  alias: '[Alarm] Aviso alarma warning'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'warning'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: '@josepgarcia ALARM Warning {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
+
+
+##########################################
+## Aviso alarma TRIGGERED - DISPARADA
+##
+- id: aviso_alarma_triggered
+  alias: '[Alarm] Aviso alarma triggered'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'triggered'
+  action:
+    - service: notify.AireCarlet
+      data:    
+        message: '@josepgarcia ALARMA DISPARADA!!! {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
+
+
+##########################################
+## Aviso alarma OFF
+##
+- id: aviso_alarma_disarmed
+  alias: '[Alarm] Disarmed'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.house
+      to: 'disarmed'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "Alarma *desactivada*"

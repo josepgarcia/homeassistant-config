@@ -1,0 +1,151 @@
+sun.sun:
+  friendly_name: Dia Nit
+#### PUERTAS
+binary_sensor.door_window_sensor_158d0001a7eafb:
+  friendly_name: Porta Garatge
+binary_sensor.door_window_sensor_158d0001b7bd84:
+  friendly_name: Porta Entrada  
+#### MOVIMIENTO
+binary_sensor.motion_sensor_158d000222e398:
+  friendly_name: Presencia
+binary_sensor.motion_sensor_158d0001f9d516:
+  friendly_name: Presencia2
+binary_sensor.motion_sensor_158d000236b6a6:
+  friendly_name: Presencia3
+#### LUCES
+light.gateway_light_7811dcb21feb:
+  friendly_name: Gateway Llum
+light.yeelight_rgb_7811dce0fcc8:
+  hidden: true
+light.yeelight_strip_286c07af341b:
+  hidden: true
+light.yeelight_color2_7c49eb1ddec4:
+  hidden: true
+#### BOTON
+binary_sensor.switch_158d0001ef87ed:
+  friendly_name: Boton1
+  hidden: true
+#### ILUMINACION
+sensor.illumination_7811dcb21feb:
+  friendly_name: SensorLlum gateway
+sensor.illumination_158d000222e398:
+  friendly_name: SensorLlum Presencia
+sensor.illumination_158d0001f9d516:
+  friendly_name: SensorLlum Presencia2
+sensor.illumination_158d000236b6a6:
+  friendly_name: SensorLlum Presencia3
+#### SENSORS TEMPERATURA
+# ESTUDI
+sensor.humidity_158d00022736ec:
+  friendly_name: Estudi Humitat
+  icon: mdi:water-percent
+sensor.temperature_158d00022736ec:
+  friendly_name: Estudi
+sensor.pressure_158d00022736ec:
+  friendly_name: Estudi Pressió
+  icon: mdi:sort-descending
+# DORMITORI
+sensor.temperature_158d0001f5669a:
+  friendly_name: Dormitori
+sensor.humidity_158d0001f5669a:
+  friendly_name: Dormitori Humitat
+  icon: mdi:water-percent
+sensor.pressure_158d0001f5669a:
+  friendly_name: Dormitori Pressió
+  icon: mdi:sort-descending
+# SALON
+sensor.humidity_158d0001f23dca:
+  friendly_name: Saló Humitat
+  icon: mdi:water-percent
+sensor.temperature_158d0001f23dca:
+  friendly_name: Saló
+sensor.pressure_158d0001f23dca:
+  friendly_name: Saló Pressió
+  icon: mdi:sort-descending
+# EXTERIOR
+sensor.humidity_158d0002273b84:
+  friendly_name: Exterior Humitat
+  icon: mdi:water-percent
+sensor.temperature_158d0002273b84:
+  friendly_name: Exterior
+sensor.pressure_158d0002273b84:
+  friendly_name: Exterior Pressió
+  icon: mdi:sort-descending
+####################################
+#### SCRIPTS
+####################################
+script.test_telegram:
+  hidden: true
+script.sonar_gw_baixet:
+  hidden: true
+script.info_sensors_telegram:
+  hidden: true
+script.info_temperatura_telegram_ana:
+  hidden: true
+script.info_temperatura_telegram:
+  hidden: true
+script.play_sel_sound_single:
+  hidden: false
+script.info_estado_tot:
+  hidden: true
+script.info_estado_tot_ana:
+  hidden: true
+script.info_estado_log_all_telegram:
+  hidden: true
+script.abrir_puerta_entrada:
+  hidden: true
+script.abrir_puerta_garaje:
+  hidden: true
+script.calentador_on:
+  hidden: true
+script.calentador_off:
+  hidden: true  
+# LED dormitori
+script.led_dormitori_off:
+  hidden: true  
+script.led_dormitori_on:
+  hidden: true  
+# BOMBILLES
+script.bombilla2_on:
+  hidden: true  
+script.bombilla2_off:
+  hidden: true
+script.bombilla2_info_alarm_on:
+  hidden: true
+# IR
+switch.aire:
+  icon: mdi:air-conditioner
+switch.ventilador:
+  icon: mdi:fan
+# SONOFF
+switch.sonoffbasic:
+  hidden: true
+# SONOFF PRO
+switch.4chPro1:
+  hidden: true
+switch.4chPro2:
+  hidden: true
+##### GRUPOS groups
+# Los grupos por defecto están ocultos
+group.all_automations:
+  hidden: false
+group.all_switches:
+  hidden: false
+group.all_scripts:
+  hidden: false
+group.all_lights:
+  hidden: false
+group.all_devices:
+  hidden: false  
+# Ordenamos grupos
+group.default_view:
+  order: 1
+group.temperaturacasa:
+  order: 2
+group.dev:
+  order: 3
+group.test:
+  order: 4  
+# SENSORES  
+sensor.process_mosquitto:
+  friendly_name: 'Mosquitto'

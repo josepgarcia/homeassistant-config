@@ -1,0 +1,7 @@
+- platform: polling
+  api_key: !secret telegram_apikeyU
+  allowed_chat_ids:
+     - !secret telegram_chat_id
+     - !secret telegram_josep_id
+     - !secret telegram_ana_chat_id
+     - !secret telegram_ana_id
