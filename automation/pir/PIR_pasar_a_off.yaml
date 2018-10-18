@@ -1,0 +1,74 @@
+# http://domology.es/tasmotear-sonoff-rf-bridge-y-anadirlo-en-ha/
+# En el caso del PIR como no tiene dos códigos RF 
+# (Uno para activarse y otro cuando esta en standby) 
+# debemos poner un código inventado realizar un automation 
+# para que vuelva al estado original a los x segundos, 
+# de lo contrario siempre nos daría que hay movimiento en 
+# la estancia cuando no lo hubiera:
+# Con esto conseguiríamos que el PIR diera aviso de movimiento 
+# y que a los x segundos restableciera su estado a no detectado.   
+#
+# Al final se manda un código OFF inventado al sensor binario
+# a los X segundos para simular que lo hace él mismo al apagarse
+- alias: mqtt restart PIR_kerui_mini1
+  hide_entity: true
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.PIR_kerui_mini1
+      from: 'off'
+      to: 'on'
+      for:
+        seconds: 3
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Movimiento detectado PIR kerui mini1"  
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge/RESULT
+         payload: '{"RfReceived":{"Data":"F0330Aoff"}}'
+         retain: "true"
+
+- alias: mqtt restart PIR_kerui_gran1
+  hide_entity: true
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.PIR_kerui_gran1
+      from: 'off'
+      to: 'on'
+      for:
+        seconds: 3
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Movimiento detectado PIR kerui gran1"  
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge/RESULT
+         payload: '{"RfReceived":{"Data":"695BAAoff"}}'
+         retain: "true"
+
+- alias: mqtt restart PIR_kerui_gran2
+  hide_entity: true
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.PIR_kerui_gran2
+      from: 'off'
+      to: 'on'
+      for:
+        seconds: 3
+  action:
+    - service: notify.AireCarlet
+      data:
+          message:
+           "Movimiento detectado PIR kerui gran2"  
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge/RESULT
+         payload: '{"RfReceived":{"Data":"7D899Aoff"}}'
+         retain: "true"         

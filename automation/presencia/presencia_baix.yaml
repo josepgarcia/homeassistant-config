@@ -1,3 +1,7 @@
+##########################################
+## Luz presencia entrada, se enciende:
+## desde 30 minutos despúes de la puesta de sol
+## https://www.home-assistant.io/docs/scripts/conditions/
 - id: presencia_baix_llum
   alias: 'Presencia baix llum'
   hide_entity: true
@@ -6,10 +10,17 @@
     platform: state
     #from: 'off'
     to: 'on'
-  condition:
-    - condition: time
-      after: '21:00:00'
-      before: '08:00:00'   
+  condition:      
+     - condition: sun
+       after: sunset
+       after_offset: "+00:30:00"
+     - condition: sun
+       after: sunrise
+       after_offset: "-01:00:00"
+#      before_offset: "-00:30:00"
+#    - condition: time
+#      after: '21:00:00'
+#      before: '08:00:00'
   action:  
     - service: script.turn_on
       data:

@@ -81,3 +81,4 @@
     - service: notify.AireCarlet
       data:
         message: "Puerta garaje *Abierta*"
+ 

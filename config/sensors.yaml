@@ -18,7 +18,42 @@
       arg: mosquitto
 
 - platform: pi_hole
-  
+
+    #sensor clientraw
+    #reads info from clientraw.txt from meteo stations on Internet from URL.
+    #needs .homeassistant/custom_components/sensor/clientraw.py
+    #from: https://github.com/pilotak/HomeAssistant-MyConfig/tree/master/custom_components/sensor
+- platform: clientraw
+  interval: 5
+  name: meteocarlet
+  url: !secret clientrawURL
+  monitored_conditions:
+    - temp
+    - wind_dir
+    - wind_gust_kph
+    - wind_kph
+    - symbol
+    - forecast
+    - rain_rate
+    - pressure
+    - humidity
+      
+- platform: clientraw
+  interval: 5
+  name: meteoinsti
+  url: !secret clientrawURL2
+  monitored_conditions:
+    - temp
+    - wind_dir
+    - wind_gust_kph
+    - wind_kph
+    - symbol
+    - forecast
+    - rain_rate
+    - pressure
+    - humidity
+
+      
 - platform: template
   sensors:
     bateria_porta_garatge:

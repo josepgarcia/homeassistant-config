@@ -43,7 +43,7 @@ history:
 logbook:
 
 # Track the sun
-# sun:
+sun:
   
 #https://home-assistant.io/components/recorder/
 #The recorder component is storing details in a database which then are handled by the history component.

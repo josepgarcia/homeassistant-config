@@ -6,3 +6,5 @@ temperaturacasa:
     - group.humitat
     - group.pressio
     - group.sensorllum
+    - group.meteocarlet
+    - group.meteoinsti

@@ -12,8 +12,3 @@ pihole:
   title: 'Pi Hole'
   icon: mdi:music-note-whole
   url: 'http://192.168.3.12/admin/'
-  
-#dexter:
-#  title: 'Dexter'
-#  icon: mdi:harddisk
-#  url: 'https://192.168.3.11:5001/'

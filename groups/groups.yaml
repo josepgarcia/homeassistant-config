@@ -100,3 +100,29 @@ luces:
         - light.bombilla1
         - light.bombilla2
         - light.ledsdormitori
+        
+meteocarlet:
+    name: MeteoCarlet
+    entities:
+        - sensor.meteocarlet_temperature_c        
+        - sensor.meteocarlet_forecast
+        - sensor.meteocarlet_humidity
+        - sensor.meteocarlet_pressure
+        - sensor.meteocarlet_rain_rate
+        - sensor.meteocarlet_symbol
+        - sensor.meteocarlet_wind_direction
+        - sensor.meteocarlet_wind_gust_kmh
+        - sensor.meteocarlet_wind_speed_kmh
+
+meteoinsti:
+    name: MeteoInsti
+    entities:
+        - sensor.meteoinsti_temperature_c        
+        - sensor.meteoinsti_forecast
+        - sensor.meteoinsti_humidity
+        - sensor.meteoinsti_pressure
+        - sensor.meteoinsti_rain_rate
+        - sensor.meteoinsti_symbol
+        - sensor.meteoinsti_wind_direction
+        - sensor.meteoinsti_wind_gust_kmh
+        - sensor.meteoinsti_wind_speed_kmh        

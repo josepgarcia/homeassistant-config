@@ -1,0 +1,16 @@
+##########################################
+## Foto OBRIR porta garatge
+##
+#- alias: Foto porta garatge
+#  hide_entity: true
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.door_window_sensor_158d0001a7eafb
+#      from: 'off'
+#      to: 'on'
+#  action:
+#    - delay:
+#        seconds: 7
+#    - service: script.turn_on
+#      data:
+#        entity_id: script.enviar_foto_telegram

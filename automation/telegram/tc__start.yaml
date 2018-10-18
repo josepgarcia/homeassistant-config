@@ -82,9 +82,9 @@
               - '/start'
      - delay:
          minutes: 1
-     - service: script.turn_on
-       data:
-            entity_id: script.keyboard_principal_airecarlet
+#     - service: script.turn_on
+#       data:
+#            entity_id: script.keyboard_principal_airecarlet
      
 ##########################################
 ## KEYBOARD - alarma

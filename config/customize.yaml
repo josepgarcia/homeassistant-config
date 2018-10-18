@@ -1,5 +1,5 @@
-sun.sun:
-  friendly_name: Dia Nit
+##sun.sun:
+##  friendly_name: Dia Nit
 #### PUERTAS
 binary_sensor.door_window_sensor_158d0001a7eafb:
   friendly_name: Porta Garatge
@@ -102,7 +102,7 @@ script.calentador_off:
   hidden: true  
 # LED dormitori
 script.led_dormitori_off:
-  hidden: true  
+  hidden: true
 script.led_dormitori_on:
   hidden: true  
 # BOMBILLES

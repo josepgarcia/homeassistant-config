@@ -25,6 +25,7 @@ entity_registry.yaml
 
 !custom_components
 !custom_components/alarm_control_panel
+!custom_components/sensor
 
 !groups
 
@@ -40,3 +41,4 @@ entity_registry.yaml
 !README.md
 !configuration.yaml
 !secrets_EXAMPLE.yaml
+!gitupdate.sh
