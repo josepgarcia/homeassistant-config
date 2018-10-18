@@ -1,6 +1,12 @@
-## Instalación
+## Con la ayuda de:
 
-1. mv secrets_EXAMPLE.yaml secrets.yaml
+- [Domology] (http://domology.es/) - [Telegram] (https://t.me/Domology)
+
+- [Domótica en casa] (https://domoticaencasa.es/) - [Telegram] (https://t.me/GizChinaHomeAssistant)
+
+## Instalación:
+
+1. mv secretsRENAME.yaml secrets.yaml
 
 2. modificar valores secrets.yaml
 
