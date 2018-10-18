@@ -5,6 +5,7 @@
 !*.yaml
 !*.css
 !*.js
+!*.py
 !.gitignore
 
 ### IGNORE

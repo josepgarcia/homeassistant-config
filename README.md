@@ -13,6 +13,8 @@
 
 ## Configuración actual:
 
+- Versión Home Assistant 0.69.1
+
 - RaspberryPi 2 - Raspbian + Home Assistant
 
 - Mosquitto server

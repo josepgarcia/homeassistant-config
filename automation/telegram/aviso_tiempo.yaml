@@ -1,6 +1,28 @@
 ##########################################
 ## Foto OBRIR porta garatge
 ##
+- alias: 'empieza lluvia'
+  trigger:   
+      entity_id: sensor.meteocarlet_forecast
+      platform: state
+      to: rain
+  action:
+    service: notify.AireCarlet
+    data_template:
+      title: "Empieza la lluvia"
+      message: "({{ states.sensor.meteocarlet_rain_rate.state }} mm)"
+
+- alias: 'termina lluvia'
+  trigger:   
+      entity_id: sensor.meteocarlet_forecast
+      platform: state
+      from: rain
+  action:
+    service: notify.AireCarlet
+    data_template:
+      title: "Termina la lluvia"
+      message: "({{ states.sensor.meteocarlet_rain_rate.state }} mm)"              
+
 #- alias: Foto porta garatge
 #  hide_entity: true
 #  trigger:
