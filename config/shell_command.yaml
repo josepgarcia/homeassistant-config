@@ -9,3 +9,5 @@ cmd_reboot_pi: reboot
 
 # Qué usuario ejecuta HA? para ponerlo en sudoers y que pueda reiniciar
 cmd_whoami: whoami > /tmp/whoami.txt
+
+meteo_snapshot: "rm /home/homeassistant/capturas/meteo.png; wget -q -O /home/homeassistant/capturas/meteo.png http://inforatge.com/administrador/mapa-hui.png"

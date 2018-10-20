@@ -19,12 +19,12 @@
 
 - platform: pi_hole
 
-    #sensor clientraw
-    #reads info from clientraw.txt from meteo stations on Internet from URL.
-    #needs .homeassistant/custom_components/sensor/clientraw.py
-    #from: https://github.com/pilotak/HomeAssistant-MyConfig/tree/master/custom_components/sensor
+#sensor clientraw
+#reads info from clientraw.txt from meteo stations on Internet from URL.
+#needs .homeassistant/custom_components/sensor/clientraw.py
+#from: https://github.com/pilotak/HomeAssistant-MyConfig/tree/master/custom_components/sensor
 - platform: clientraw
-  interval: 5
+  interval: 15
   name: meteocarlet
   url: !secret clientrawURL
   monitored_conditions:
@@ -40,7 +40,7 @@
       
 - platform: clientraw
   interval: 5
-  name: meteoinsti
+  name: meteolalcudia
   url: !secret clientrawURL2
   monitored_conditions:
     - temp

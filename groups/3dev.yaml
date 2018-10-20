@@ -2,6 +2,7 @@ dev:
   name: "3. Dev"
   view: yes
   entities:
+      - group.rspimonitor
       - group.all_automations
       - group.all_scripts
       - group.all_switches

@@ -1,3 +1,15 @@
+keyboard_principal_airecarlet:
+    alias: 'Keyboard principal AireCarlet'
+    sequence:
+        - service: notify.AireCarlet
+          data:
+            message: 'Comandos disponibles'
+            data:
+                keyboard:
+                    - '/status, /ping, /meteo'
+                    - '/automation, /remoto, /avanzado'
+                    - '/alarma, /puertas, /switches'
+                    
 # oculto (customize.yaml)
 info_estado_tot:
   alias: 'Info estado todos los sensores'
@@ -83,14 +95,3 @@ enviar_foto_telegram:
                 - file: /home/homeassistant/capturas/captura1.jpg
                   caption: 'Captura entrada'
                   
-keyboard_principal_airecarlet:
-    alias: 'Keyboard principal AireCarlet'
-    sequence:
-        - service: notify.AireCarlet
-          data:
-            message: 'Comandos disponibles'
-            data:
-                keyboard:
-                    - '/status, /ping, /avanzado'
-                    - '/automation, /remoto'
-                    - '/alarma, /puertas, /switches'

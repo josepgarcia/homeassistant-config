@@ -151,6 +151,20 @@
               - 'Dormitori: /VentiladorOn, /VentiladorOff'
               - '/start'
 
+##########################################
+## KEYBOARD - meteoLalcudia
+##
+- alias: 'TC meteoLalcudia'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/meteo'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.info_meteolalcudia
 
 ##########################################
 ## KEYBOARD - ping

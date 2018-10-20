@@ -101,6 +101,15 @@ luces:
         - light.bombilla2
         - light.ledsdormitori
         
+rspimonitor:
+    name: RSPI monitor
+    entities:
+        - sensor.disk_use_percent_home
+        - sensor.last_boot
+        - sensor.memory_free
+        - sensor.processor_use
+        - sensor.since_last_boot
+        
 meteocarlet:
     name: MeteoCarlet
     entities:
@@ -114,15 +123,15 @@ meteocarlet:
         - sensor.meteocarlet_wind_gust_kmh
         - sensor.meteocarlet_wind_speed_kmh
 
-meteoinsti:
-    name: MeteoInsti
+meteolalcudia:
+    name: MeteoLalcudia
     entities:
-        - sensor.meteoinsti_temperature_c        
-        - sensor.meteoinsti_forecast
-        - sensor.meteoinsti_humidity
-        - sensor.meteoinsti_pressure
-        - sensor.meteoinsti_rain_rate
-        - sensor.meteoinsti_symbol
-        - sensor.meteoinsti_wind_direction
-        - sensor.meteoinsti_wind_gust_kmh
-        - sensor.meteoinsti_wind_speed_kmh        
+        - sensor.meteolalcudia_temperature_c        
+        - sensor.meteolalcudia_forecast
+        - sensor.meteolalcudia_humidity
+        - sensor.meteolalcudia_pressure
+        - sensor.meteolalcudia_rain_rate
+        - sensor.meteolalcudia_symbol
+        - sensor.meteolalcudia_wind_direction
+        - sensor.meteolalcudia_wind_gust_kmh
+        - sensor.meteolalcudia_wind_speed_kmh        
