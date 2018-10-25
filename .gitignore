@@ -7,6 +7,7 @@
 !*.js
 !*.py
 !.gitignore
+!.md
 
 ### IGNORE
 secrets.yaml
@@ -37,6 +38,10 @@ entity_registry.yaml
 !www
 !www/alarm
 !www/lib
+
+!documentacion
+!documentacion/medidor_consumo.md
+!documentacion/imgs
 
 !AUTOMATION.md
 !README.md
