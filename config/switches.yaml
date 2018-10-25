@@ -1,4 +1,20 @@
 ##########################################
+## BlitzWolf SHP2 http://192.168.3.88
+## medidorconsumo 
+##
+- platform: mqtt
+  name: "Medidor Consumo"
+  state_topic: "stat/medidorconsumo/POWER"
+  command_topic: "cmnd/medidorconsumo/POWER"
+  availability_topic: "tele/medidorconsumo/LWT"
+  qos: 2
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+  
+##########################################
 ## Sonoff s20 http://192.168.3.75/
 ## Bombeta
 ##

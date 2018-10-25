@@ -149,3 +149,29 @@ group.test:
 # SENSORES  
 sensor.process_mosquitto:
   friendly_name: 'Mosquitto'
+##########################################
+## BlitzWolf SHP2
+## medidorconsumo 
+##
+switch.enchufe_acuario:
+  icon: mdi:power-socket-eu
+sensor.bw1_power:
+  friendly_name: Consumo actual
+  icon: mdi:flash
+sensor.bw1_current:
+  friendly_name: Intensidad
+  icon: mdi:flash
+sensor.bw1_voltage:
+  friendly_name: Voltaje
+  icon: mdi:flash
+sensor.bw1_today:
+  friendly_name: Consumo hoy
+  icon: mdi:calendar-today
+sensor.bw1_yesterday:
+  friendly_name: Cosumo ayer
+  icon: mdi:calendar-week
+sensor.bw1_total:
+  friendly_name: Total consumo
+  icon: mdi:calendar-blank
+##
+##########################################

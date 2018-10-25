@@ -109,7 +109,10 @@ rspimonitor:
         - sensor.memory_free
         - sensor.processor_use
         - sensor.since_last_boot
-        
+                
+##########################################
+## Meteo
+##         
 meteocarlet:
     name: MeteoCarlet
     entities:
@@ -135,3 +138,21 @@ meteolalcudia:
         - sensor.meteolalcudia_wind_direction
         - sensor.meteolalcudia_wind_gust_kmh
         - sensor.meteolalcudia_wind_speed_kmh        
+
+##########################################
+## BlitzWolf SHP2
+## medidorconsumo 
+##        
+consumo:
+  name: MedidorConsumo
+  #view: yes
+  icon: mdi:fish
+  #control: hidden
+  entities:
+    - switch.medidor_consumo
+    - sensor.bw1_power
+    - sensor.bw1_current
+    - sensor.bw1_voltage
+    - sensor.bw1_today
+    - sensor.bw1_yesterday
+    - sensor.bw1_total        
