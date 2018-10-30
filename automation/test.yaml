@@ -13,3 +13,54 @@
       topic: tele/sonoffrfbridge/RESULT
       payload: '{"RfReceived":{"Data":"A055off"}}'
       retain: "true"
+      
+### SUN SUNSET
+#- alias: suntest1
+#  trigger:
+#    platform: sun
+#    event: sunset 
+#    offset: '-00:45:00'
+#  action:
+#    - service: notify.AireCarlet
+#      data:
+#        message: 'SUN A: sunset -45'        
+#        
+#- alias: suntest2
+#  trigger:
+#    platform: sun
+#    event: sunset 
+#    offset: '+00:00:00'
+#  action:
+#    - service: notify.AireCarlet
+#      data:
+#        message: 'SUN B: sunset +00'   
+#        
+#- alias: suntest3
+#  trigger:
+#    platform: sun
+#    event: sunrise 
+#    offset: '+00:00:00'
+#  action:
+#    - service: notify.AireCarlet
+#      data:
+#        message: 'SUN C: sunrise +00'
+#        
+#- alias: suntest4
+#  trigger:
+#    platform: sun
+#    event: sunrise 
+#    offset: '+00:30:00'
+#  action:
+#    - service: notify.AireCarlet
+#      data:
+#        message: 'SUN D: sunrise +30'
+#        
+#- alias: suntest5
+#  trigger:
+#    platform: sun
+#    event: sunrise 
+#    offset: '-00:30:00'
+#  action:
+#    - service: notify.AireCarlet
+#      data:
+#        message: 'SUN E: sunrise -30'        

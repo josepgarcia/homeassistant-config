@@ -155,4 +155,5 @@ consumo:
     - sensor.bw1_voltage
     - sensor.bw1_today
     - sensor.bw1_yesterday
-    - sensor.bw1_total        
+    - sensor.bw1_total   
+    - sensor.bw1_factor

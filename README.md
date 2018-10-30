@@ -30,5 +30,7 @@
 
 - Sonoff
 
+- Medidor consumo: BlitzWolf SHP2
+
 ## Automations
 

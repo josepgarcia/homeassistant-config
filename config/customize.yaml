@@ -19,6 +19,7 @@ light.yeelight_rgb_7811dce0fcc8:
   hidden: true
 light.yeelight_strip_286c07af341b:
   hidden: true
+  friendly_name: ledsdormitori
 light.yeelight_color2_7c49eb1ddec4:
   hidden: true
 #### BOTON
