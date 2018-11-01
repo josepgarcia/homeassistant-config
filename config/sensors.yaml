@@ -7,7 +7,13 @@
   state_topic: "tele/medidorconsumo/SENSOR"
   value_template: "{{ value_json['ENERGY'].Total }}"
   unit_of_measurement: "kW/h"
-  
+
+- platform: mqtt
+  name: bw1_total_euro
+  state_topic: "tele/medidorconsumo/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Total | multiply(0.145) | round(2) }}"
+  unit_of_measurement: "€"
+    
 - platform: mqtt
   name: bw1_yesterday
   state_topic: "tele/medidorconsumo/SENSOR"

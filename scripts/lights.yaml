@@ -3,14 +3,14 @@ led_dormitori_on:
   alias: 'Led dormitori ON'
   sequence:
      - service: light.turn_on
-       entity_id: light.yeelight_strip_286c07af341b
+       entity_id: light.ledsdormitori
 
 # oculto (customize.yaml)
 led_dormitori_off:
   alias: 'Led dormitori OFF'
   sequence:
      - service: light.turn_off
-       entity_id: light.yeelight_strip_286c07af341b
+       entity_id: light.ledsdormitori
 
 # oculto (customize.yaml)
 bombilla1_on:

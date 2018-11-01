@@ -6,21 +6,21 @@
   alias: 'Presencia baix llum'
   hide_entity: true
   trigger:
-    entity_id: binary_sensor.motion_sensor_158d000222e398
+    entity_id: binary_sensor.Presencia
     platform: state
     #from: 'off'
     to: 'on'
-  condition:      
+  condition:    
      - condition: sun
        after: sunset
-       after_offset: "+00:30:00"
      - condition: sun
-       after: sunrise
-       after_offset: "-01:00:00"
-#      before_offset: "-00:30:00"
-#    - condition: time
-#      after: '21:00:00'
-#      before: '08:00:00'
+       before: sunrise      
+#     - condition: sun
+#       after: sunset
+#       offset: "+00:00:00"
+#     - condition: sun
+#       after: sunrise
+#       offset: "-00:30:00"
   action:  
     - service: script.turn_on
       data:

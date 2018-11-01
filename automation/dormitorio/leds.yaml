@@ -15,10 +15,10 @@
 #      - fri
 #  action:
 #    - service: light.turn_on
-#      entity_id: light.yeelight_strip_286c07af341b
+#      entity_id: light.ledsdormitori
 #    - delay: 0:03
 #    - service: light.turn_off
-#      entity_id: light.yeelight_strip_286c07af341b
+#      entity_id: light.ledsdormitori
 
 - id: leds_nit
   alias: 'Leds nit'
@@ -42,8 +42,9 @@
       after: '21:00:00'
       before: '22:00:00'    
   action:
-    - service: light.turn_on
-      entity_id: light.yeelight_strip_286c07af341b      
+    - service: script.turn_on
+      data:
+        entity_id: script.led_dormitori_on
 
 
 #- id: toggle_leds_dormitori

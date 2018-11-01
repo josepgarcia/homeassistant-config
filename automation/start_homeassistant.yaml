@@ -36,3 +36,22 @@
       data:
         entity_id: 
           - switch.4chPro4        
+#### MANDAMOS CÓDIGO OFF DE LOS SENSORES
+    # PIR_kerui_mini1
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge/RESULT
+         payload: '{"RfReceived":{"Data":"F0330Aoff"}}'
+         retain: "true"
+    # PIR_kerui_gran1
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge/RESULT
+         payload: '{"RfReceived":{"Data":"695BAAoff"}}'
+         retain: "true"  
+    # PIR_kerui_gran2
+    - service: mqtt.publish
+      data:
+         topic: tele/sonoffrfbridge/RESULT
+         payload: '{"RfReceived":{"Data":"7D899Aoff"}}'
+         retain: "true"          

@@ -153,7 +153,8 @@ consumo:
     - sensor.bw1_power
     - sensor.bw1_current
     - sensor.bw1_voltage
+    - sensor.bw1_factor
     - sensor.bw1_today
     - sensor.bw1_yesterday
     - sensor.bw1_total   
-    - sensor.bw1_factor
+    - sensor.bw1_total_euro    

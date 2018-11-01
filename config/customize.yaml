@@ -7,6 +7,7 @@ binary_sensor.door_window_sensor_158d0001b7bd84:
   friendly_name: Porta Entrada  
 #### MOVIMIENTO
 binary_sensor.motion_sensor_158d000222e398:
+  alias: Presencia
   friendly_name: Presencia
 binary_sensor.motion_sensor_158d0001f9d516:
   friendly_name: Presencia2
@@ -15,8 +16,8 @@ binary_sensor.motion_sensor_158d000236b6a6:
 #### LUCES
 light.gateway_light_7811dcb21feb:
   friendly_name: Gateway Llum
-light.yeelight_rgb_7811dce0fcc8:
-  hidden: true
+#light.yeelight_rgb_7811dce0fcc8:
+#  hidden: true
 light.yeelight_strip_286c07af341b:
   hidden: true
   friendly_name: ledsdormitori
@@ -170,9 +171,12 @@ sensor.bw1_today:
   icon: mdi:calendar-today
 sensor.bw1_yesterday:
   friendly_name: Cosumo ayer
-  icon: mdi:calendar-week
+  icon: mdi:mdi-calendar-text
 sensor.bw1_total:
   friendly_name: Total consumo
-  icon: mdi:calendar-blank
+  icon: mdi:mdi-calendar-star
+sensor.bw1_total_euro:
+  friendly_name: Total coste
+  icon: mdi:currency-eur  
 ##
 ##########################################
