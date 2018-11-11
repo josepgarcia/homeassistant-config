@@ -39,12 +39,12 @@ sensor.illumination_158d000236b6a6:
 #### SENSORS TEMPERATURA
 # ESTUDI
 sensor.humidity_158d00022736ec:
-  friendly_name: Estudi Humitat
+  friendly_name: Olivia Humitat
   icon: mdi:water-percent
 sensor.temperature_158d00022736ec:
-  friendly_name: Estudi
+  friendly_name: Olivia
 sensor.pressure_158d00022736ec:
-  friendly_name: Estudi Pressió
+  friendly_name: Olivia Pressió
   icon: mdi:sort-descending
 # DORMITORI
 sensor.temperature_158d0001f5669a:

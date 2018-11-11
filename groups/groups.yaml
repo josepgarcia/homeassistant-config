@@ -1,3 +1,11 @@
+##
+varios:
+    name: Varios
+    entities:
+        - sun.sun
+        - sensor.process_mosquitto
+        - alarm_control_panel.house
+##        
 baterias:
     name: Baterias
     entities:
@@ -6,7 +14,7 @@ baterias:
         - sensor.bateria_presencia1
         - sensor.bateria_presencia2
         - sensor.bateria_presencia3
-        
+##        
 multisensor:
   name: Sensors 
   entities:
@@ -15,6 +23,9 @@ multisensor:
      - binary_sensor.motion_sensor_158d000222e398
      - binary_sensor.motion_sensor_158d0001f9d516
      - binary_sensor.motion_sensor_158d000236b6a6 # Presnecia3
+     - binary_sensor.pir_kerui_gran1
+     - binary_sensor.pir_kerui_gran2
+     - binary_sensor.pir_kerui_mini1
 
 temperatura:
   name: Temperatura
@@ -24,6 +35,14 @@ temperatura:
      - sensor.temperature_158d0001f5669a
      - sensor.temperature_158d0001f23dca
      - sensor.temperature_158d00022736ec
+
+##
+temperaturahabitacions:
+    name: Temp Habitacions
+    view: no
+    entities:
+      - sensor.temperature_158d00022736ec
+      - sensor.temperature_158d0001f5669a
 
 humitat:
   name: Humitat
@@ -57,7 +76,9 @@ gwtestsounds:
      - input_select.gateway_sound    
      - script.play_sel_sound_single
 
+##
 dispositivosdormitorio:
+  control: hidden
   name: Dormitori
   entities:
      - switch.aire
@@ -70,16 +91,17 @@ switchsonoff:
   entities:
      - switch.sonoffs20
      - switch.sonoffs202
-     
+
+##     
 todascamaras:
   name: Camaras
   entities:
       - camera.cam_estudi
       
-dormitorio:
-  name: Dormitorio
-  entities:
-      - script.airedormitorio_x_minutos
+# dormitorio:
+#  name: Dormitorio
+#  entities:
+#      - script.airedormitorio_x_minutos
 
 pihole:
   name: Pi-Hole
@@ -94,6 +116,7 @@ pihole:
       - sensor.pihole_dns_unique_domains
       - sensor.pihole_domains_blocked
 
+##
 luces:
     name: Luces
     entities:

@@ -1,5 +1,5 @@
 
-rebootpi: 'sudo reboot'
+rebootpi: 'sudo reboot > /tmp/error_reboot.txt'
 
 take_snapshot: 'rm /home/homeassistant/capturas/captura1.jpg; ffmpeg -rtsp_transport -udp_multicast -i rtsp://192.168.3.70:554/ch0_0.h264 -f image2 -vframes 1 -pix_fmt yuvj420p /home/homeassistant/capturas/captura1.jpg'
 

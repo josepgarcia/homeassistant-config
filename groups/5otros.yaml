@@ -1,0 +1,7 @@
+test:
+  name: "Otros"
+  view: yes
+  entities:
+    - group.gwtestsounds
+    - group.baterias
+    

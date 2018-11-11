@@ -13,6 +13,20 @@
        data:
             entity_id: script.keyboard_principal_airecarlet
 
+
+- alias: 'TC start ANA'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/inici'
+  action:
+     - service: script.turn_on
+       data:
+            entity_id: script.keyboard_principal_airecarlet_ana
+
+
 ##########################################
 ## KEYBOARD - avanzado
 ##
@@ -61,6 +75,26 @@
               - '/calentadorON, /calentadorOFF'
               - '/start'
 
+- alias: 'TC switches Ana'
+  hide_entity: true
+  trigger:
+     - platform: event
+       event_type: telegram_command
+       event_data:
+         command: '/llums'
+  action:
+     - service: notify.AireCarlet_A
+       data:
+          message:
+                "*Llums*\n
+                Luz entrada: *{{ states.light.bombilla1.state }}*\n
+                Luz salón: *{{ states.light.bombilla2.state }}*\n"
+          data:
+            keyboard:
+              - '/luzentradaON, /luzentradaOFF'        
+              - '/luzsalonON, /luzsalonOFF'
+              - '/inici'
+
 ##########################################
 ## KEYBOARD - puertas
 ##
@@ -80,11 +114,7 @@
             keyboard:
               - '/AbrirEntrada, /AbrirGaraje'        
               - '/start'
-     - delay:
-         minutes: 1
-#     - service: script.turn_on
-#       data:
-#            entity_id: script.keyboard_principal_airecarlet
+
      
 ##########################################
 ## KEYBOARD - alarma
@@ -166,6 +196,18 @@
       data:
         entity_id: script.info_meteolalcudia
 
+- alias: 'TC meteoLalcudia Ana'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/infometeo'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.info_meteolalcudia_ana
+        
 ##########################################
 ## KEYBOARD - ping
 ##

@@ -1,5 +1,0 @@
-test:
-  name: "5. test"
-  view: yes
-  entities:
-    - group.gwtestsounds

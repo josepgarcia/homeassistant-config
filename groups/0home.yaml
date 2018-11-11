@@ -1,5 +1,10 @@
-#default_view:
-#  view: yes
-#  name: "1. Inicio"
-#  entities:
-#    - group.multisensor    
+default_view:
+  view: yes
+  name: "Inicio"
+  entities:
+    - group.varios
+    - group.luces
+    - group.multisensor
+    - group.todascamaras
+    - group.consumo
+    

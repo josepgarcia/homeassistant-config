@@ -9,7 +9,20 @@ keyboard_principal_airecarlet:
                     - '/status, /ping, /meteo'
                     - '/automation, /remoto, /avanzado'
                     - '/alarma, /puertas, /switches'
-                    
+
+keyboard_principal_airecarlet_ana:
+    alias: 'Keyboard principal AireCarlet Ana'
+    sequence:
+        - service: notify.AireCarlet_A
+          data:
+            message: 'Comandos disponibles'
+            data:
+                keyboard:
+                    - '/llums, /infometeo'
+                    - '/alarmOFF'
+                    #- '/automation, /remoto, /avanzado'
+                    #- '/alarma, /puertas, /switches'
+                                 
 # oculto (customize.yaml)
 info_estado_tot:
   alias: 'Info estado todos los sensores'
