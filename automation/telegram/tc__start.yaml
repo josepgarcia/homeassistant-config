@@ -67,7 +67,8 @@
                 "*Switches*\n
                 Luz entrada: *{{ states.light.bombilla1.state }}*\n
                 Luz salón: *{{ states.light.bombilla2.state }}*\n
-                Calentador: *{{ states.switch.sonoffs202.state }}*"
+                Luz dormitorio: *{{ states.light.ledsdormitori.state }}*\n
+                Calentador: *{{ states.switch.medidorconsumo.state }}*"
           data:
             keyboard:
               - '/luzentradaON, /luzentradaOFF'        
@@ -88,7 +89,9 @@
           message:
                 "*Llums*\n
                 Luz entrada: *{{ states.light.bombilla1.state }}*\n
-                Luz salón: *{{ states.light.bombilla2.state }}*\n"
+                Luz salón: *{{ states.light.bombilla2.state }}*\n
+                Luz dormitorio: *{{ states.light.ledsdormitori.state }}*\n
+                Calentador: *{{ states.switch.medidorconsumo.state }}*"
           data:
             keyboard:
               - '/luzentradaON, /luzentradaOFF'        
@@ -157,7 +160,7 @@
                 "*Automation*\n"
           data:
             keyboard:
-              - '/capturafoto, /nada'        
+              - '/fotogaratge, /nada'        
               - '/start'
 
 ##########################################

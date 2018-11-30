@@ -1,0 +1,7 @@
+salo:
+  name: "Salo"
+  view: yes
+  entities:
+    - group.dispositivossalon
+    - group.temperaturasalo
+    - group.consumo

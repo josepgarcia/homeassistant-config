@@ -1,5 +1,5 @@
 dev:
-  name: "3. Dev"
+  name: "Dev"
   view: yes
   entities:
       - group.rspimonitor

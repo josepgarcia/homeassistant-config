@@ -138,3 +138,18 @@ bombilla2_info_alarm_on:
 #EFFECT_TWITTER = "Twitter"
 #EFFECT_STOP = "Stop"          
           
+bombilla2lightup:
+  alias: Bombilla2 Light Up
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bombilla2
+        #transition: '1'
+        brightness: >
+            {%- if states.light.bombilla2.attributes.brightness <= 75 %}
+              175
+            {% elif states.light.bombilla2.attributes.brightness <= 175 %}
+              255
+            {% elif states.light.bombilla2.attributes.brightness <= 255 %}
+              75
+            {% endif %}          

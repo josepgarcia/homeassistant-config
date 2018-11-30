@@ -21,8 +21,8 @@
   hide_entity: true
   trigger:
      - platform: time
-       hours: '23'
-       minutes: '10'
+       hours: '00'
+       minutes: '30'
        seconds: '00'
   condition:
     condition: state

@@ -8,12 +8,11 @@
     platform: event
     event_type: telegram_command
     event_data:
-      command: '/capturafoto'
+      command: '/fotogaratge'
   action:
     - service: script.turn_on
       data:
-        entity_id: script.enviar_foto_telegram      
-      
+        entity_id: script.enviar_foto_telegram                
 #    - service: shell_command.take_snapshot
 #    - delay:
 #        seconds: 1

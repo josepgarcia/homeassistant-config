@@ -1,17 +1,17 @@
 ##########################################
-## Sonoff s20 2 - Calentador
+## medidorconsumo - Calentador
 ##
 calentador_on:
   alias: 'Calentador ON'
   sequence:
      - service: switch.turn_on
-       entity_id: switch.sonoffs202
+       entity_id: switch.medidorconsumo
 
 calentador_off:
   alias: 'Calentador OFF'
   sequence:
      - service: switch.turn_off
-       entity_id: switch.sonoffs202
+       entity_id: switch.medidorconsumo
 
 ##########################################
 ## Sonoff basic 
@@ -68,4 +68,3 @@ alarma_apagar:
       data:
         entity_id: 
           - switch.4chPro3
-

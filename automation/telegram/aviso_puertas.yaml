@@ -49,6 +49,11 @@
     - service: notify.AireCarlet
       data:
         message: 'Porta entrada oberta!! @josepgarcia'
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10006
+        ringtone_vol: 6                
 
 
 ##########################################
@@ -84,4 +89,12 @@
   action:
     - service: notify.AireCarlet
       data:
-        message: 'Porta garatge oberta!! @josepgarcia'
+        message: 'Porta garatge oberta!! @josepgarcia'        
+    - service: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: !secret gw_mac
+        ringtone_id: 10006
+        ringtone_vol: 6      
+    - service: script.turn_on
+      data:
+        entity_id: script.enviar_foto_telegram        

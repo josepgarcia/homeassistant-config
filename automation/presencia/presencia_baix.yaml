@@ -6,15 +6,18 @@
   alias: 'Presencia baix llum'
   hide_entity: true
   trigger:
-    entity_id: binary_sensor.Presencia
+    entity_id: binary_sensor.motion_sensor_158d000222e398
     platform: state
     #from: 'off'
     to: 'on'
   condition:    
-     - condition: sun
-       after: sunset
-     - condition: sun
-       before: sunrise      
+    - condition: time
+      after: '19:00:00'
+      before: '8:30:00' 
+#     - condition: sun
+#       after: sunset
+#     - condition: sun
+#       before: sunrise      
 #     - condition: sun
 #       after: sunset
 #       offset: "+00:00:00"
@@ -34,7 +37,8 @@
   alias: 'Presencia baix Play'
   hide_entity: true
   trigger:
-    entity_id: binary_sensor.motion_sensor_158d000222e398
+    entity_id: binary_sensor.motion_sensor_158d000222e398  
+    #entity_id: binary_sensor.motion_sensor_158d000222e398
     platform: state
     #from: 'off'
     to: 'on'

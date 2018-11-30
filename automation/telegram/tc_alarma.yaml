@@ -59,11 +59,6 @@
       event_type: click
       event_data:
         entity_id: binary_sensor.switch_158d0001ef87ed
-        click_type: double
-    - platform: event
-      event_type: click
-      event_data:
-        entity_id: binary_sensor.switch_158d0001ef87ed
         click_type: long_click_press
   action:
     - service: alarm_control_panel.alarm_disarm

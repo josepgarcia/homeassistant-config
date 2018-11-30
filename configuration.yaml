@@ -50,6 +50,12 @@ sun:
 recorder:
   purge_interval: 7
   purge_keep_days: 7
+  # Historial de determinados sensores
+  #include:
+  #  entities:
+  #    - binary_sensor.door_window_sensor_XXXXX
+  #    - sensor.temperature_XXXXX
+  #    - switch.plug_XXXXX
   
 ##########################
 ######## INCLUDES ########
@@ -80,6 +86,7 @@ alarm_control_panel: !include panels/alarm.yaml
 panel_custom: !include panels/panel_custom.yaml
 
 xiaomi_aqara:
+  discovery_retry: 10
   gateways:
     - mac: !secret gw_mac 
       key: !secret gw_key 

@@ -99,9 +99,9 @@ script.abrir_puerta_entrada:
 script.abrir_puerta_garaje:
   hidden: true
 script.calentador_on:
-  hidden: true
+  hidden: false
 script.calentador_off:
-  hidden: true  
+  hidden: false  
 # LED dormitori
 script.led_dormitori_off:
   hidden: true
@@ -142,12 +142,18 @@ group.all_devices:
 # Ordenamos grupos
 group.default_view:
   order: 1
-group.temperaturacasa:
-  order: 2
-group.dev:
+group.inicio:
+  order: 1  
+group.salo:
   order: 3
-group.test:
-  order: 4  
+group.habitacions:
+  order: 4
+group.temperaturacasa:
+  order: 5
+group.otros:
+  order: 6
+group.dev:
+  order: 7  
 # SENSORES  
 sensor.process_mosquitto:
   friendly_name: 'Mosquitto'
@@ -155,7 +161,7 @@ sensor.process_mosquitto:
 ## BlitzWolf SHP2
 ## medidorconsumo 
 ##
-switch.enchufe_acuario:
+switch.bw1_factor:
   icon: mdi:power-socket-eu
 sensor.bw1_power:
   friendly_name: Consumo actual

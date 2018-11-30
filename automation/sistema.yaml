@@ -1,0 +1,17 @@
+- alias: MQTT Notify stop process
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.process_mosquitto
+  condition:
+    - condition: template
+      value_template: "{% if trigger.from_state and trigger.to_state %} True {% else %} False {% endif %}"
+  action:
+    - service: notify.AireCarlet
+      data_template:
+        message: >
+          {% if trigger.to_state.state | lower == "off" %}
+            {{ trigger.to_state.attributes.friendly_name }} offline!
+          {% else %}
+            {{ trigger.to_state.attributes.friendly_name }} online!
+          {% endif %}          

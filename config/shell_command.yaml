@@ -5,7 +5,8 @@ take_snapshot: 'rm /home/homeassistant/capturas/captura1.jpg; ffmpeg -rtsp_trans
 
 take_video: 'rm /home/homeassistant/capturas/video.avi; ffmpeg -rtsp_transport -udp_multicast -i  rtsp://192.168.3.70:554/ch0_0.h264 -vcodec copy -t 6 -y /home/homeassistant/capturas/video.avi'
 
-cmd_reboot_pi: reboot
+
+cmd_reboot_pi: 'sudo reboot > /tmp/reboot.txt'
 
 # Qué usuario ejecuta HA? para ponerlo en sudoers y que pueda reiniciar
 cmd_whoami: whoami > /tmp/whoami.txt

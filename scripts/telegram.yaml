@@ -51,7 +51,10 @@ info_estado_tot:
          ***ALARMA ***\n
          {% if states.alarm_control_panel.house.state == 'armed_away' %}activada
          {% elif states.alarm_control_panel.house.state == 'pending' %}activant-se
-         {% else %}desactivada{% endif %}"
+         {% else %}desactivada{% endif %}\n
+         ***CALENTADOR***\n
+         Estado: _{{ states.switch.medidorconsumo.state|upper }}_ - Consumo: {{ states.sensor.bw1_total_euro.state }} €\n
+         Consumo ayer: {{ states.sensor.bw1_yesterday_euro.state }} €"
 
 # oculto (customize.yaml)
 info_estado_tot_ana:

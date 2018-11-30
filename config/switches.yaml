@@ -3,16 +3,18 @@
 ## medidorconsumo 
 ##
 - platform: mqtt
-  name: "Medidor Consumo"
+  name: "medidorconsumo"
   state_topic: "stat/medidorconsumo/POWER"
   command_topic: "cmnd/medidorconsumo/POWER"
   availability_topic: "tele/medidorconsumo/LWT"
-  qos: 2
+  qos: 1
   payload_on: "ON"
   payload_off: "OFF"
   payload_available: "Online"
   payload_not_available: "Offline"
+  optimistic: false
   retain: true
+  icon: mdi:speedometer
   
 ##########################################
 ## Sonoff s20 http://192.168.3.75/

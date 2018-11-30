@@ -9,21 +9,21 @@
 ###
 ### SENSORE PIR
 ###
-- platform: mqtt
-  name: "PIR_kerui_mini1"
-  state_topic: "tele/sonoffrfbridge/RESULT"
-  payload_on: "F0330A"
-  payload_off: "F0330Aoff" ##Aqui pondriamos un codigo inventado.
-  device_class: motion ## Aqui vendria que tipo de sensor seria.
-  value_template: '{{ value_json.RfReceived.Data }}'
- 
-- platform: mqtt
-  name: "PIR_kerui_gran1"
-  state_topic: "tele/sonoffrfbridge/RESULT"
-  payload_on: "695BAA"
-  payload_off: "695BAAoff" ##Aqui pondriamos un codigo inventado.
-  device_class: motion ## Aqui vendria que tipo de sensor seria.
-  value_template: '{{ value_json.RfReceived.Data }}'  
+#- platform: mqtt
+#  name: "PIR_kerui_mini1"
+#  state_topic: "tele/sonoffrfbridge/RESULT"
+#  payload_on: "F0330A"
+#  payload_off: "F0330Aoff" ##Aqui pondriamos un codigo inventado.
+#  device_class: motion ## Aqui vendria que tipo de sensor seria.
+#  value_template: '{{ value_json.RfReceived.Data }}'
+# 
+#- platform: mqtt
+#  name: "PIR_kerui_gran1"
+#  state_topic: "tele/sonoffrfbridge/RESULT"
+#  payload_on: "695BAA"
+#  payload_off: "695BAAoff" ##Aqui pondriamos un codigo inventado.
+#  device_class: motion ## Aqui vendria que tipo de sensor seria.
+#  value_template: '{{ value_json.RfReceived.Data }}'  
 
 - platform: mqtt
   name: "PIR_kerui_gran2"

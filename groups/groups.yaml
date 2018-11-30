@@ -44,6 +44,17 @@ temperaturahabitacions:
       - sensor.temperature_158d00022736ec
       - sensor.temperature_158d0001f5669a
 
+temperaturasalo:
+    name: Temp Salo
+    view: no
+    entities:
+        - sensor.temperature_158d0001f23dca
+        - sensor.humidity_158d0001f23dca
+        - sensor.pressure_158d0001f23dca
+        - sensor.temperature_158d0002273b84
+        - sensor.humidity_158d0002273b84
+        - sensor.pressure_158d0002273b84
+    
 humitat:
   name: Humitat
   view: no
@@ -85,7 +96,13 @@ dispositivosdormitorio:
      - switch.ventilador
      - switch.tvdormitori
      - light.ledsdormitori
- 
+
+dispositivossalon:
+  control: hidden
+  name: Salon
+  entities:
+     - light.bombilla2
+
 switchsonoff:
   name: Sonoff
   entities:
@@ -172,7 +189,7 @@ consumo:
   icon: mdi:fish
   #control: hidden
   entities:
-    - switch.medidor_consumo
+    - switch.medidorconsumo
     - sensor.bw1_power
     - sensor.bw1_current
     - sensor.bw1_voltage

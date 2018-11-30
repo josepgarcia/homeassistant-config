@@ -7,3 +7,8 @@ whoami:
   alias: WhoAmI
   sequence:
     - service: shell_command.cmd_whoami
+
+reboot_ha:
+  alias: Restart Home Assistant
+  sequence:
+     service: homeassistant.restart

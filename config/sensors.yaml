@@ -21,6 +21,12 @@
   unit_of_measurement: "kW/h"  
   
 - platform: mqtt
+  name: bw1_yesterday_euro
+  state_topic: "tele/medidorconsumo/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Yesterday | multiply(0.145) | round(2) }}"
+  unit_of_measurement: "€"  
+  
+- platform: mqtt
   name: bw1_today
   state_topic: "tele/medidorconsumo/SENSOR"
   value_template: "{{ value_json['ENERGY'].Today }}"
