@@ -74,6 +74,7 @@ panel_iframe: !include panels/panels.yaml
 device_tracker: !include config/devices_tracker.yaml
 input_select: !include config/input_select.yaml
 input_boolean: !include config/input_bool.yaml
+input_number: !include config/input_number.yaml
 telegram_bot: !include config/telegram_bots.yaml
 camera:  !include config/cameras.yaml
 sensor: !include config/sensors.yaml

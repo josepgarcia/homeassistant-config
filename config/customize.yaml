@@ -16,8 +16,8 @@ binary_sensor.motion_sensor_158d000236b6a6:
 #### LUCES
 light.gateway_light_7811dcb21feb:
   friendly_name: Gateway Llum
-#light.yeelight_rgb_7811dce0fcc8:
-#  hidden: true
+light.yeelight_rgb_7811dce0fcc8:
+  hidden: true
 light.yeelight_strip_286c07af341b:
   hidden: true
   friendly_name: ledsdormitori

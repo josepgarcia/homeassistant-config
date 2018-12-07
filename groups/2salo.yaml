@@ -5,3 +5,4 @@ salo:
     - group.dispositivossalon
     - group.temperaturasalo
     - group.consumo
+    - group.Waterheatertimer1

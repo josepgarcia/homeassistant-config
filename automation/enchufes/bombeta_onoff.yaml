@@ -1,3 +1,17 @@
+#    - condition: time
+#      weekday:
+#        - mon
+#      #  - tue
+#        - wed
+#        - thu
+#        - fri
+
+#### LUNES
+#### MARTES
+#### MIERCOLES
+#### JUEVES
+#### VIERNES
+
 - id: bombeta_aigua_on
   alias: 'Bombeta aigua ON'
   hide_entity: true
@@ -6,30 +20,150 @@
        hours: '8'
        minutes: '10'
        seconds: '00'
+     - platform: time
+       hours: '13'
+       minutes: '30'
+       seconds: '00'       
+     - platform: time
+       hours: '20'
+       minutes: '00'
+       seconds: '00'       
   condition:
-    condition: state
-    entity_id: input_boolean.en_vacaciones
-    state: 'off'       
+     - condition: state
+       entity_id: input_boolean.en_vacaciones
+       state: 'off'
+     - condition: time
+       weekday:
+         - mon
+         - tue
+         - wed
+         - thu
+         - fri
   action:
      - service: switch.turn_on
        data:
          entity_id: 
            - switch.sonoffs20
-
+           
 - id: bombeta_aigua_off
   alias: 'Bombeta aigua OFF'
   hide_entity: true
   trigger:
      - platform: time
-       hours: '00'
-       minutes: '30'
+       hours: '12'
+       minutes: '00'
        seconds: '00'
+     - platform: time
+       hours: '16'
+       minutes: '50'
+       seconds: '00'      
+     - platform: time
+       hours: '21'
+       minutes: '30'
+       seconds: '00'       
   condition:
-    condition: state
-    entity_id: input_boolean.en_vacaciones
-    state: 'off'       
+     - condition: state
+       entity_id: input_boolean.en_vacaciones
+       state: 'off'     
+     - condition: time
+       weekday:
+         - mon
+         - tue
+         - wed
+         - thu
+         - fri       
   action:
      - service: switch.turn_off
        data:
          entity_id: 
            - switch.sonoffs20     
+
+
+#### MARTES
+- id: bombeta_aigua_mart_on
+  alias: 'Bombeta aigua mart ON'
+  hide_entity: true
+  trigger:
+     - platform: time
+       hours: '23'
+       minutes: '00'
+       seconds: '00'
+  condition:
+     - condition: state
+       entity_id: input_boolean.en_vacaciones
+       state: 'off'
+     - condition: time
+       weekday:
+         - tue
+  action:
+     - service: switch.turn_on
+       data:
+         entity_id: 
+           - switch.sonoffs20
+           
+- id: bombeta_aigua_mart_off
+  alias: 'Bombeta aigua mart OFF'
+  hide_entity: true
+  trigger:
+     - platform: time
+       hours: '23'
+       minutes: '59'
+       seconds: '00'
+  condition:
+     - condition: state
+       entity_id: input_boolean.en_vacaciones
+       state: 'off'     
+     - condition: time
+       weekday:
+         - tue
+  action:
+     - service: switch.turn_off
+       data:
+         entity_id: 
+           - switch.sonoffs20  
+
+#### SABADO
+#### DOMINGO
+- id: bombeta_aigua_sabdom_on
+  alias: 'Bombeta aigua sabdom ON'
+  hide_entity: true
+  trigger:
+     - platform: time
+       hours: '8'
+       minutes: '10'
+       seconds: '00'
+  condition:
+     - condition: state
+       entity_id: input_boolean.en_vacaciones
+       state: 'off'
+     - condition: time
+       weekday:
+         - sat
+         - sun
+  action:
+     - service: switch.turn_on
+       data:
+         entity_id: 
+           - switch.sonoffs20
+           
+- id: bombeta_aigua_sabdom_off
+  alias: 'Bombeta aigua sabdom OFF'
+  hide_entity: true
+  trigger:
+     - platform: time
+       hours: '23'
+       minutes: '50'
+       seconds: '00'
+  condition:
+     - condition: state
+       entity_id: input_boolean.en_vacaciones
+       state: 'off'     
+     - condition: time
+       weekday:
+         - sat
+         - sun     
+  action:
+     - service: switch.turn_off
+       data:
+         entity_id: 
+           - switch.sonoffs20  

@@ -1,0 +1,47 @@
+- alias: 'Timer1'
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.timer1_time.state }}'
+  condition:
+    condition: or
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.programweekday1
+            state: 'on'
+          - condition: time
+            weekday:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+      - condition: state
+        entity_id: input_boolean.programweekday1
+        state: 'off'
+  action:
+    - service: notify.AireCarlet
+      data:
+        message: "Timer 1 - waterheater on"
+    - service: script.calentador_on
+    - delay: "{{states.sensor.timer1_duration.state}}"
+    - service: script.calentador_off
+    - service: notify.AireCarlet
+      data:
+        message: "Timer 1 - waterheater off"
+
+- alias: 'Timer1 only once time'
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.timer1_time.state }}'
+  condition:
+    condition: state
+    entity_id: input_boolean.programonlyonce1
+    state: 'on'    
+  action:
+    - service: automation.turn_off
+      entity_id: automation.timer1
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.programonlyonce1      

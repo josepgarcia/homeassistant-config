@@ -24,3 +24,12 @@ en_vacaciones:
   
 #dash_button_1:
 #  initial: off
+
+####################
+##### Programador    
+programweekday1:
+    name: Weekdays Only
+    icon: mdi:calendar
+programonlyonce1:
+    name: Only once time
+    icon: mdi:calendar

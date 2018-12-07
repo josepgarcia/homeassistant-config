@@ -7,7 +7,95 @@
 #        - fri
 
 #### LUNES
+- id: calentador_lun_on
+  alias: 'Calentador lun ON'
+  hide_entity: true
+  trigger:
+    - platform: time
+      hours: '14'
+      minutes: '00'
+      seconds: '00'
+    - platform: time
+      hours: '19'
+      minutes: '00'
+      seconds: '00'  
+  condition:    
+    - condition: state
+      entity_id: input_boolean.en_vacaciones
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+  action:
+    service: script.calentador_on
+
+- id: calentador_lun_off
+  alias: 'Calentador lun OFF'
+  hide_entity: true
+  trigger:
+    - platform: time
+      hours: '16'
+      minutes: '45'
+      seconds: '00'
+    - platform: time
+      hours: '21'
+      minutes: '00'
+      seconds: '00'  
+  condition:
+    - condition: state
+      entity_id: input_boolean.en_vacaciones
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+  action:
+    service: script.calentador_off
+
 #### MARTES
+- id: calentador_mar_on
+  alias: 'Calentador mar ON'
+  hide_entity: true
+  trigger:
+    - platform: time
+      hours: '19'
+      minutes: '00'
+      seconds: '00'
+    - platform: time
+      hours: '22'
+      minutes: '00'
+      seconds: '00'  
+  condition:    
+    - condition: state
+      entity_id: input_boolean.en_vacaciones
+      state: 'off'
+    - condition: time
+      weekday:
+        - tue
+  action:
+    service: script.calentador_on
+
+- id: calentador_mar_off
+  alias: 'Calentador mar OFF'
+  hide_entity: true
+  trigger:
+    - platform: time
+      hours: '20'
+      minutes: '45'
+      seconds: '00'
+    - platform: time
+      hours: '23'
+      minutes: '59'
+      seconds: '00'  
+  condition:
+    - condition: state
+      entity_id: input_boolean.en_vacaciones
+      state: 'off'
+    - condition: time
+      weekday:
+        - tue
+  action:
+    service: script.calentador_off
+    
 #### MIÉRCOLES
 - id: calentador_mier_on
   alias: 'Calentador mier ON'
@@ -134,5 +222,50 @@
         - fri
   action:
     service: script.calentador_off    
+    
 #### SÁBADO
+- id: calentador_sab_on
+  alias: 'Calentador sab ON'
+  hide_entity: true
+  trigger:
+    - platform: time
+      hours: '10'
+      minutes: '30'
+      seconds: '00'  
+#    - platform: time
+#      hours: '14'
+#      minutes: '00'
+#      seconds: '00'
+  condition:    
+    - condition: state
+      entity_id: input_boolean.en_vacaciones
+      state: 'off'
+    - condition: time
+      weekday:
+        - sat
+  action:
+    service: script.calentador_on
+    
+- id: calentador_sab_off
+  alias: 'Calentador sab OFF'
+  hide_entity: true
+  trigger:
+    - platform: time
+      hours: '12'
+      minutes: '30'
+      seconds: '00'  
+#    - platform: time
+#      hours: '15'
+#      minutes: '00'
+#      seconds: '00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.en_vacaciones
+      state: 'off'
+    - condition: time
+      weekday:
+        - sat
+  action:
+    service: script.calentador_off
+    
 #### DOMINGO

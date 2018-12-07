@@ -102,6 +102,7 @@ dispositivossalon:
   name: Salon
   entities:
      - light.bombilla2
+     - switch.sonoffs202
 
 switchsonoff:
   name: Sonoff
@@ -198,3 +199,23 @@ consumo:
     - sensor.bw1_yesterday
     - sensor.bw1_total   
     - sensor.bw1_total_euro    
+
+Waterheatertimer1:
+  name: Programar Calentador
+  view: no
+  control: hidden
+  entities: 
+    - automation.Timer1
+    - sensor.timer1_time
+    - sensor.timer1_duration
+    - input_number.timer1_hour
+    - input_number.timer1_minutes
+    - input_number.timer1_duration
+    - input_boolean.programweekday1
+    - input_boolean.programonlyonce1
+    
+#waterheater:
+#  name: "Waterheater"
+#  view: yes
+#  entities:
+#    - group.Waterheatertimer1    

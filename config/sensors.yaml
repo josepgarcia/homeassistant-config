@@ -125,7 +125,23 @@
     - pressure
     - humidity
 
-      
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+    - 'time_utc'
+
+- platform: template
+  sensors:
+    timer1_time:
+      friendly_name: 'start time'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.timer1_hour") | int, states("input_number.timer1_minutes") | int) }}'
+    timer1_duration:
+      friendly_name: 'duration'  
+      value_template: '{{ "%0.02d:%0.02d" | format(0 | int, states("input_number.timer1_duration") | int) }}'  
+
 - platform: template
   sensors:
     bateria_porta_garatge:
