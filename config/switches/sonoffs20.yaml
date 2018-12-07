@@ -1,0 +1,29 @@
+##########################################
+## Sonoff s20 http://192.168.3.75/
+## Bombeta
+##
+- platform: mqtt
+  name: "sonoffs20"
+  state_topic: "stat/sonoffs20/POWER"
+  command_topic: "cmnd/sonoffs20/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:power-socket-eu
+  
+##########################################
+## Sonoff s20 2 http://192.168.3.84/
+## Calentador
+##
+- platform: mqtt
+  name: "sonoffs202"
+  state_topic: "stat/sonoffs202/POWER"
+  command_topic: "cmnd/sonoffs202/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:power-socket-eu

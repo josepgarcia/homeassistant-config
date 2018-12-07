@@ -1,0 +1,55 @@
+##########################################
+## Sonoff 4ch Pro r2 http://192.168.3.78/
+##
+- platform: mqtt
+  name: "4chPro1"
+  state_topic: "stat/sonoff4chpror2/POWER1"
+  command_topic: "cmnd/sonoff4chpror2/POWER1"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:numeric-1-box-outline
+  
+- platform: mqtt
+  name: "4chPro2"
+  state_topic: "stat/sonoff4chpror2/POWER2"
+  command_topic: "cmnd/sonoff4chpror2/POWER2"  
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true   
+  icon: mdi:numeric-2-box-outline
+  
+- platform: mqtt
+  name: "4chPro3"
+  state_topic: "stat/sonoff4chpror2/POWER3"
+  command_topic: "cmnd/sonoff4chpror2/POWER3"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true   
+  icon: mdi:numeric-3-box-outline
+  
+- platform: mqtt
+  name: "4chPro4"
+  state_topic: "stat/sonoff4chpror2/POWER4"
+  command_topic: "cmnd/sonoff4chpror2/POWER4"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true     
+  icon: mdi:numeric-4-box-outline
+  

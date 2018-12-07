@@ -1,0 +1,13 @@
+##########################################
+## Lolin1 http://192.168.3.90/
+
+- platform: mqtt
+  name: "lolin1"
+  state_topic: "stat/lolin1/POWER"
+  command_topic: "cmnd/lolin1/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  retain: true
+  icon: mdi:car
