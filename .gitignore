@@ -17,6 +17,8 @@ entity_registry.yaml
 !config
 !config/input
 !config/switches
+!config/sensors
+!config/binary_sensors
 
 !automation
 !automation/alarma

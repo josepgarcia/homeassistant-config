@@ -1,5 +1,5 @@
 temperaturacasa:
-  name: "Temperatura Casa"
+  name: "Temperatura"
   view: yes
   entities:
     - group.temperatura

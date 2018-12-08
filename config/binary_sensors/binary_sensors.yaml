@@ -1,0 +1,20 @@
+###
+# Sonoff rf bridge
+# http://192.168.3.86
+
+#PIR xicotet -> F0330A
+#PIR gran 1 -> 695BAA
+#PIR gran 2 -> 7D899A
+
+###
+### SENSORE PIR
+###
+
+# http://192.168.3.87  
+#- platform: mqtt
+#  name: "sonoffrfbridge2"
+#  state_topic: "tele/sonoffrfbridge2/RESULT"
+#  payload_on: "F0330A"
+#  payload_off: "F0330Aoff" ##Aqui pondriamos un codigo inventado.
+#  device_class: motion ## Aqui vendria que tipo de sensor seria.
+#  value_template: '{{ value_json.RfReceived.Data }}'  

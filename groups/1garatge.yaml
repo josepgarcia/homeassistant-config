@@ -1,0 +1,7 @@
+garatge:
+  name: "Garatge"
+  view: yes
+  entities:
+    - group.dispositivosgaratge
+    - group.presenciagaratge
+    - group.sonoff4chpror2

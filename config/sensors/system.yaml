@@ -1,0 +1,37 @@
+- platform: systemmonitor 
+  name: Domopi
+  # en segundos (1 hora)
+  scan_interval: 3600
+  resources: 
+      - type: disk_use_percent 
+        arg: /home 
+      - type: memory_free 
+      - type: processor_use 
+      - type: last_boot 
+      - type: since_last_boot
+#      - type: disk_free 
+#        arg: /
+
+- platform: systemmonitor
+  resources:
+    - type: process
+      arg: mosquitto
+
+- platform: pi_hole
+
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+    - 'time_utc'
+
+- platform: template
+  sensors:
+    timer1_time:
+      friendly_name: 'start time'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.timer1_hour") | int, states("input_number.timer1_minutes") | int) }}'
+    timer1_duration:
+      friendly_name: 'duration'  
+      value_template: '{{ "%0.02d:%0.02d" | format(0 | int, states("input_number.timer1_duration") | int) }}'  

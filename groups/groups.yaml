@@ -87,7 +87,30 @@ gwtestsounds:
      - input_select.gateway_sound    
      - script.play_sel_sound_single
 
-##
+## GARATGE
+dispositivosgaratge:
+  control: hidden
+  name: Garatge
+  entities:
+      - switch.sonoffs20
+      
+presenciagaratge:      
+  control: hidden
+  name: Presencia
+  entities:    
+      - binary_sensor.door_window_sensor_158d0001a7eafb
+      - binary_sensor.door_window_sensor_158d0001b7bd84
+      - binary_sensor.motion_sensor_158d000222e398
+
+sonoff4chpror2:
+    control: hidden
+    name: Sonoff 4ch
+    entities:
+        #- switch.4chPro1
+        #- switch.4chPro2
+        - switch.4chPro3
+        - switch.4chPro4
+      
 dispositivosdormitorio:
   control: hidden
   name: Dormitori

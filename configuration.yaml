@@ -62,7 +62,13 @@ recorder:
 ##########################
 
 #### CONFIG
+binary_sensor: !include_dir_merge_list config/binary_sensors
+sensor: !include_dir_merge_list config/sensors
 switch: !include_dir_merge_list config/switches
+input_select: !include config/input/input_select.yaml
+input_boolean: !include config/input/input_bool.yaml
+input_number: !include config/input/input_number.yaml
+
 light: !include config/lights.yaml
 notify: !include config/notify.yaml
 #remote: !include config/remotes.yaml     - XIAOMI IR REMOTE
@@ -75,15 +81,8 @@ device_tracker: !include config/devices_tracker.yaml
 
 telegram_bot: !include config/telegram_bots.yaml
 camera:  !include config/cameras.yaml
-sensor: !include config/sensors.yaml
+
 shell_command: !include config/shell_command.yaml
-
-binary_sensor: !include config/binary_sensors.yaml
-
-#### INPUT config/input/
-input_select: !include config/input/input_select.yaml
-input_boolean: !include config/input/input_bool.yaml
-input_number: !include config/input/input_number.yaml
 
 #### ALARM
 alarm_control_panel: !include panels/alarm.yaml

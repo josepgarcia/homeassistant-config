@@ -127,6 +127,10 @@ switch.4chPro1:
   hidden: true
 switch.4chPro2:
   hidden: true
+switch.4chPro3:
+  friendly_name: Alarma
+switch.4chPro4:
+  friendly_name: Alimentació GW
 ##### GRUPOS groups
 # Los grupos por defecto están ocultos
 group.all_automations:
